@@ -4,13 +4,32 @@ import React from "react"
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowLeft, Mail, Phone, MapPin, Send } from "lucide-react"
+import {
+  ArrowLeft,
+  ArrowRight,
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  TrendingUp,
+  BarChart3,
+  Shield,
+  Sparkles,
+} from "lucide-react"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
 import { Navbar } from "@/components/sections/navbar"
 import { Footer } from "@/components/sections/footer"
+import { LeadCaptureDialog } from "@/components/lead-capture-dialog"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -21,6 +40,8 @@ export default function ContactPage() {
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [submitted, setSubmitted] = useState(false)
+  const [learnMoreOpen, setLearnMoreOpen] = useState(false)
+  const [forecastOpen, setForecastOpen] = useState(false)
 
   function validate() {
     const errs: Record<string, string> = {}
@@ -274,6 +295,131 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
+
+        {/* CTA Section */}
+        <section className="border-t border-border py-24">
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">
+              Take the Next Step
+            </p>
+            <h2 className="font-serif text-3xl font-bold text-foreground md:text-5xl text-balance">
+              Discover what your property could be worth in 2026.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              Our AI-powered forecast model analyzes market trends, neighborhood
+              data, and economic indicators to give you a personalized valuation
+              — completely free.
+            </p>
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button
+                size="lg"
+                className="h-12 gap-2 text-base font-semibold"
+                onClick={() => setForecastOpen(true)}
+              >
+                <TrendingUp className="h-5 w-5" />
+                Get 2026 Value Forecast
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-12 gap-2 text-base font-semibold bg-transparent"
+                onClick={() => setLearnMoreOpen(true)}
+              >
+                Learn More
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Learn More Dialog */}
+        <Dialog open={learnMoreOpen} onOpenChange={setLearnMoreOpen}>
+          <DialogContent className="sm:max-w-lg">
+            <DialogHeader>
+              <DialogTitle className="font-serif text-xl">
+                How Our AI Forecast Works
+              </DialogTitle>
+              <DialogDescription>
+                A look behind our predictive real estate model.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="flex flex-col gap-5 py-4">
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Nexus Realty Group leverages advanced machine learning trained on
+                over 10 years of hyperlocal sales data, economic indicators, and
+                neighborhood-level trends to project property values 12 months
+                into the future.
+              </p>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div className="flex flex-col items-center gap-2 rounded-lg border border-border bg-secondary/50 p-4 text-center">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <BarChart3 className="h-5 w-5 text-primary" />
+                  </div>
+                  <p className="text-sm font-semibold text-foreground">
+                    Data-Driven
+                  </p>
+                  <p className="text-xs leading-relaxed text-muted-foreground">
+                    Analyzes 50+ market variables per property.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center gap-2 rounded-lg border border-border bg-secondary/50 p-4 text-center">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <Shield className="h-5 w-5 text-primary" />
+                  </div>
+                  <p className="text-sm font-semibold text-foreground">
+                    94% Accuracy
+                  </p>
+                  <p className="text-xs leading-relaxed text-muted-foreground">
+                    Backtested against 3 years of actual closings.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center gap-2 rounded-lg border border-border bg-secondary/50 p-4 text-center">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <Sparkles className="h-5 w-5 text-primary" />
+                  </div>
+                  <p className="text-sm font-semibold text-foreground">
+                    Free Report
+                  </p>
+                  <p className="text-xs leading-relaxed text-muted-foreground">
+                    No obligation. Delivered within 24 hours.
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-xs text-muted-foreground">
+                Your report includes a projected value range, comparable sales
+                analysis, neighborhood trend summary, and personalized
+                recommendations from our team.
+              </p>
+            </div>
+
+            <div className="flex justify-end gap-3">
+              <Button
+                variant="outline"
+                onClick={() => setLearnMoreOpen(false)}
+              >
+                Close
+              </Button>
+              <Button
+                onClick={() => {
+                  setLearnMoreOpen(false)
+                  setForecastOpen(true)
+                }}
+                className="gap-1.5"
+              >
+                Get My Forecast
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* Lead Capture Dialog */}
+        <LeadCaptureDialog
+          open={forecastOpen}
+          onOpenChange={setForecastOpen}
+        />
       </main>
       <Footer />
     </>
