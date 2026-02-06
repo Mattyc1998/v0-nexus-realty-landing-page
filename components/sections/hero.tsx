@@ -5,6 +5,14 @@ import { Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { LeadCaptureDialog } from "@/components/lead-capture-dialog"
+import { AnimatedCounter } from "@/components/animated-counter"
+
+const STATS = [
+  { end: 450, suffix: "+", label: "Homes Sold" },
+  { end: 94, suffix: "%", label: "Forecast Accuracy" },
+  { end: 2.1, suffix: "B+", prefix: "$", label: "Sales Volume", decimals: 1 },
+  { end: 12, suffix: "+", label: "Years Experience" },
+]
 
 export function Hero() {
   const [dialogOpen, setDialogOpen] = useState(false)
@@ -53,6 +61,26 @@ export function Hero() {
       <p className="mt-4 text-xs text-muted-foreground">
         No obligation. Free for homeowners in our service area.
       </p>
+
+      {/* Animated stat counter bar */}
+      <div className="mt-16 grid w-full max-w-3xl grid-cols-2 gap-8 md:grid-cols-4">
+        {STATS.map((stat) => (
+          <div key={stat.label} className="flex flex-col items-center gap-1">
+            <span className="text-3xl font-bold text-foreground md:text-4xl">
+              <AnimatedCounter
+                end={stat.end}
+                prefix={stat.prefix}
+                suffix={stat.suffix}
+                decimals={stat.decimals}
+                duration={2200}
+              />
+            </span>
+            <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </div>
 
       <LeadCaptureDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </section>
