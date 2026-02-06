@@ -33,7 +33,7 @@ export function Services() {
   const [dialogOpen, setDialogOpen] = useState(false)
 
   return (
-    <section className="py-20">
+    <section id="services" className="py-20">
       <div className="mx-auto max-w-7xl px-6">
         <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
           What We Do

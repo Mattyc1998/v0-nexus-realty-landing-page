@@ -14,7 +14,7 @@ export function RecentlySold() {
   const doubled = [...PROPERTIES, ...PROPERTIES]
 
   return (
-    <section className="py-20" aria-label="Recently sold properties">
+    <section id="recently-sold" className="py-20" aria-label="Recently sold properties">
       <div className="mx-auto max-w-7xl px-6">
         <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
           Social Proof

@@ -10,7 +10,7 @@ export function Hero() {
   const [dialogOpen, setDialogOpen] = useState(false)
 
   return (
-    <section className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 py-24 text-center">
+    <section id="home" className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 py-24 text-center">
       {/* Subtle radial glow behind the headline */}
       <div
         aria-hidden="true"

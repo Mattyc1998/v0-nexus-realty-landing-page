@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/sections/navbar"
 import { Hero } from "@/components/sections/hero"
 import { RecentlySold } from "@/components/sections/recently-sold"
 import { Advantages } from "@/components/sections/advantages"
@@ -10,6 +11,7 @@ import { Footer } from "@/components/sections/footer"
 export default function Page() {
   return (
     <>
+      <Navbar />
       <main>
         <Hero />
         <RecentlySold />

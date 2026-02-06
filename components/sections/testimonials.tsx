@@ -53,7 +53,7 @@ export function Testimonials() {
   }
 
   return (
-    <section className="py-20" aria-label="Client testimonials">
+    <section id="testimonials" className="py-20" aria-label="Client testimonials">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-10 flex items-end justify-between">
           <div>
