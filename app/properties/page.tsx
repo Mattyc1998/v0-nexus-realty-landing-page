@@ -347,6 +347,7 @@ export default function PropertiesPage() {
                         variant={viewMode === "grid" ? "default" : "outline"}
                         size="icon"
                         onClick={() => setViewMode("grid")}
+                        aria-label="Grid view"
                       >
                         <Grid3x3 className="h-4 w-4" />
                       </Button>
@@ -354,6 +355,7 @@ export default function PropertiesPage() {
                         variant={viewMode === "list" ? "default" : "outline"}
                         size="icon"
                         onClick={() => setViewMode("list")}
+                        aria-label="List view"
                       >
                         <List className="h-4 w-4" />
                       </Button>
@@ -380,14 +382,14 @@ export default function PropertiesPage() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
+                  className={viewMode === "grid" ? "grid gap-6 md:grid-cols-2 xl:grid-cols-3" : "flex flex-col gap-6 max-w-3xl"}
                 >
                   {filteredProperties.map((property, index) => (
                     <motion.div
                       key={property.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      transition={{ duration: 0.5, delay: index * 0.05 }}
                     >
                       <PropertyCard property={property} />
                     </motion.div>
