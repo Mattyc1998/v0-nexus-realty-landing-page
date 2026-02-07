@@ -46,18 +46,18 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.08,
     },
   },
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       ease: [0.4, 0.0, 0.2, 1],
     },
   },
@@ -69,15 +69,14 @@ const iconVariants = {
     scale: 1,
     opacity: 1,
     transition: {
-      delay: 0.1,
-      duration: 0.4,
+      duration: 0.3,
       ease: [0.68, -0.55, 0.265, 1.55],
     },
   },
 }
 
 export function Services() {
-  const { ref, isVisible } = useScrollAnimation(0.6)
+  const { ref, isVisible } = useScrollAnimation(0.3)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
@@ -86,7 +85,7 @@ export function Services() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
         >
           <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
             What We Do
@@ -96,7 +95,7 @@ export function Services() {
         <motion.h2
           initial={{ opacity: 0, x: -30 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
           className="mb-12 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
         >
           Core Services.
