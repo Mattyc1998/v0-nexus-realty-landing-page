@@ -11,7 +11,7 @@ import { AnimatedCounter } from "@/components/animated-counter"
 const STATS = [
   { end: 450, suffix: "+", label: "Homes Sold" },
   { end: 94, suffix: "%", label: "Forecast Accuracy" },
-  { end: 2.1, suffix: "B+", prefix: "£", label: "Sales Volume", decimals: 1 },
+  { end: 2.1, suffix: "B+", prefix: "$", label: "Sales Volume", decimals: 1 },
   { end: 12, suffix: "+", label: "Years Experience" },
 ]
 
@@ -130,7 +130,7 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.5, ease: [0.4, 0.0, 0.2, 1] }}
+        transition={{ duration: 0.6, delay: 2.2, ease: [0.4, 0.0, 0.2, 1] }}
         className="mt-16 grid w-full max-w-3xl grid-cols-2 gap-8 md:grid-cols-4"
       >
         {STATS.map((stat) => (
