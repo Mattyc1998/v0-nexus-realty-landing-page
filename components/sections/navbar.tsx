@@ -69,28 +69,17 @@ export function Navbar() {
           </Link>
 
           <ul className="hidden items-center gap-8 md:flex">
-            {NAV_LINKS.map((link) => {
-              const isActive =
-                link.href === "/contact"
-                  ? pathname === "/contact"
-                  : link.href === "/properties"
-                  ? pathname?.startsWith("/properties")
-                  : pathname === "/" && link.href.startsWith("/#")
-              return (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "text-sm font-medium transition-colors hover:text-primary relative group",
-                      isActive ? "text-primary" : "text-foreground"
-                    )}
-                  >
-                    {link.label}
-                    <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary transition-all duration-250 group-hover:w-full group-hover:left-0" />
-                  </Link>
-                </li>
-              )
-            })}
+            {NAV_LINKS.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className="text-sm font-medium text-foreground transition-colors hover:text-primary relative group"
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary transition-all duration-250 group-hover:w-full group-hover:left-0" />
+                </Link>
+              </li>
+            ))}
           </ul>
 
           <div className="hidden md:block">
@@ -136,33 +125,22 @@ export function Navbar() {
             className="border-t border-border bg-background/95 backdrop-blur-lg md:hidden"
           >
             <ul className="flex flex-col gap-1 px-6 py-4">
-              {NAV_LINKS.map((link, i) => {
-                const isActive =
-                  link.href === "/contact"
-                    ? pathname === "/contact"
-                    : link.href === "/properties"
-                    ? pathname?.startsWith("/properties")
-                    : pathname === "/" && link.href.startsWith("/#")
-                return (
-                  <motion.li
-                    key={link.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: i * 0.05 }}
+              {NAV_LINKS.map((link, i) => (
+                <motion.li
+                  key={link.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.05 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={cn(
-                        "block rounded-lg px-4 py-3 text-sm font-medium transition-colors hover:bg-secondary",
-                        isActive ? "text-primary" : "text-foreground"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.li>
-                )
-              })}
+                    {link.label}
+                  </Link>
+                </motion.li>
+              ))}
               <motion.li
                 className="mt-2"
                 initial={{ opacity: 0, x: -20 }}
