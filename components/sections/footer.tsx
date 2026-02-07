@@ -45,7 +45,7 @@ export function Footer() {
               Nexus Realty Group
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              The future of local living. Leveraging predictive AI to help you make the smartest real estate decisions.
+              The future of local living. Combining advanced market intelligence with personal expertise to help you make confident real estate decisions.
             </p>
           </motion.div>
 

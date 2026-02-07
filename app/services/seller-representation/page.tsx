@@ -15,19 +15,19 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { toast } from "sonner"
 
 const STEPS = [
-  { number: "01", title: "Free Home Valuation", description: "Get an AI-powered valuation with 94% accuracy in seconds" },
-  { number: "02", title: "Strategic Pricing", description: "We analyze market velocity to price your home perfectly" },
+  { number: "01", title: "Free Home Valuation", description: "Get a data-driven valuation with 94% accuracy from our expert agents" },
+  { number: "02", title: "Strategic Pricing", description: "Your agent analyzes market velocity to price your home perfectly" },
   { number: "03", title: "Professional Marketing", description: "Targeted digital campaigns reach qualified buyers fast" },
   { number: "04", title: "Digital Closing", description: "Streamlined process gets you to closing 40% faster" },
 ]
 
 const BENEFITS = [
-  { icon: Home, title: "Maximum Sale Price", description: "AI pricing optimization increases sale prices by an average of 7%" },
+  { icon: Home, title: "Maximum Sale Price", description: "Data-driven pricing optimization increases sale prices by an average of 7%" },
   { icon: Home, title: "Faster Sales", description: "Our listings sell 60% faster than the market average" },
-  { icon: Home, title: "Professional Staging", description: "AI-recommended staging increases perceived value" },
+  { icon: Home, title: "Professional Staging", description: "Expert staging recommendations increase perceived value" },
   { icon: Home, title: "Targeted Marketing", description: "Digital campaigns reach 10x more qualified buyers" },
   { icon: Home, title: "Real-Time Updates", description: "Track showings, feedback, and offers instantly" },
-  { icon: Home, title: "Expert Negotiation", description: "Data-backed negotiation strategies maximize your return" },
+  { icon: Home, title: "Expert Negotiation", description: "Our agents use data-backed strategies to maximize your return" },
 ]
 
 const TESTIMONIALS = [
@@ -36,7 +36,7 @@ const TESTIMONIALS = [
 ]
 
 const FAQ_ITEMS = [
-  { question: "How accurate is your home valuation?", answer: "Our AI-powered valuation has 94% accuracy based on thousands of comparable sales and real-time market data." },
+  { question: "How accurate is your home valuation?", answer: "Our data-driven valuation has 94% accuracy based on thousands of comparable sales and real-time market data, refined by our agents' local expertise and knowledge of your specific property." },
   { question: "What's your commission structure?", answer: "We offer competitive commission rates with transparent pricing. Contact us for a custom quote based on your home's value." },
   { question: "How long does it take to sell?", answer: "Our listings sell 60% faster than market average. Most homes sell within 30 days, with many receiving offers in the first week." },
 ]
@@ -74,7 +74,7 @@ export default function SellerRepresentationPage() {
               Sell Your Home Faster and For More
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Our AI-powered pricing algorithm and professional marketing strategies help you maximize your sale price while reducing time on market.
+              Our expert agents use advanced pricing analytics and professional marketing strategies to help you maximize your sale price while reducing time on market.
             </p>
             <Button size="lg" asChild>
               <a href="#valuation">Get Your Free Home Valuation</a>
@@ -170,7 +170,7 @@ export default function SellerRepresentationPage() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-2xl"
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-4">Get Your Free AI-Powered Home Valuation</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-4">Get Your Free Data-Driven Home Valuation</h2>
             <p className="text-center text-muted-foreground mb-8">No obligation. Free for homeowners. Receive your report in 24 hours.</p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>

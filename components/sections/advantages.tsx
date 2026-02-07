@@ -10,19 +10,19 @@ const ADVANTAGES = [
     icon: TrendingUp,
     title: "Predictive Analytics",
     description:
-      "Our AI models analyze current market velocity, historical trends, and economic indicators to forecast property values with 94% accuracy - giving you confidence in every decision.",
+      "Our platform analyzes market velocity, historical trends, and economic indicators to forecast values with 94% accuracy. Our experienced agents then interpret these insights for your specific situation, giving you data-backed confidence in every decision.",
   },
   {
     icon: MapPin,
-    title: "Hyper-Local Data",
+    title: "Hyper-Local Expertise",
     description:
-      "Neighborhood-level insights that go beyond zip codes. We track micro-market shifts block by block, giving you a true competitive edge in finding emerging opportunities.",
+      "Combining block-by-block data analytics with decades of neighborhood knowledge. We track micro-market shifts others miss, giving you true competitive advantage whether buying, selling, or investing.",
   },
   {
     icon: FileCheck,
-    title: "Frictionless Digital Closing",
+    title: "Streamlined Digital Process",
     description:
-      "From offer to keys, our streamlined digital transaction process reduces closing times by an average of 40% compared to traditional methods - getting you into your new home faster.",
+      "Our modern transaction platform reduces closing times by 40% compared to traditional methods. From initial offer to keys in hand, technology handles the paperwork while your dedicated agent handles the relationships.",
   },
 ]
 

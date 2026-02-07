@@ -11,9 +11,9 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const FAQ_ITEMS = [
   {
-    question: "How accurate is the 2026 forecast?",
+    question: "How accurate are your market forecasts?",
     answer:
-      "Our AI models utilize current market velocity and historical trends with a 94% accuracy rate. We continuously refine our algorithms with the latest transaction data to maintain industry-leading precision.",
+      "Our forecasting platform has achieved 94% accuracy by analyzing comprehensive market data. However, we always combine these data insights with our agents' local expertise and knowledge of your specific property to provide the most accurate valuation possible.",
   },
   {
     question: "Is my data sold to third parties?",
@@ -23,17 +23,17 @@ const FAQ_ITEMS = [
   {
     question: "What areas do you serve?",
     answer:
-      "We serve the greater metropolitan area including downtown, suburbs, and surrounding neighborhoods. Our hyper-local AI tracks data across 50+ micro-markets to provide accurate insights for your specific location.",
+      "We serve the greater metropolitan area including downtown, suburbs, and surrounding neighborhoods. Our platform tracks data across 50+ micro-markets, combined with our agents' deep local knowledge to provide accurate insights for your specific location.",
   },
   {
-    question: "How does your AI pricing compare to traditional CMAs?",
+    question: "Is this a tech company or a real brokerage?",
     answer:
-      "Our AI analyzes thousands of data points in real-time, while traditional Comparative Market Analysis relies on a handful of recent sales. This means more accurate pricing that adapts to market changes instantly.",
+      "We're a full-service real estate brokerage that uses advanced technology to serve you better. While our data platform gives us an edge in pricing and forecasting, you'll work directly with experienced local agents who provide personal guidance throughout your transaction.",
   },
   {
     question: "Do you work with both buyers and sellers?",
     answer:
-      "Yes, we provide full-service representation for both buyers and sellers. Our AI-powered tools give you a competitive advantage whether you're purchasing your dream home or selling for maximum value.",
+      "Yes, we provide full-service representation for both buyers and sellers. Our data-driven tools combined with expert agent guidance give you a competitive advantage whether you're purchasing your dream home or selling for maximum value.",
   },
   {
     question: "What's included in your free home valuation?",

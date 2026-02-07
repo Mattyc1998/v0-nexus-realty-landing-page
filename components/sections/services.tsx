@@ -13,7 +13,7 @@ const SERVICES = [
     slug: "seller-representation",
     title: "Sell Your Home Faster and For More",
     description:
-      "Our AI-powered pricing algorithm analyzes thousands of comparable sales and real-time market data to price your home perfectly. Combined with professional staging recommendations and targeted digital marketing, we help you maximize your sale price and reduce time on market.",
+      "Our expert agents use advanced pricing analytics to analyze thousands of comparable sales and real-time market data, ensuring your home is priced perfectly to maximize value and minimize time on market.",
     cta: "Get Free Home Valuation",
   },
   {
@@ -21,7 +21,7 @@ const SERVICES = [
     slug: "buyer-representation",
     title: "Find Your Dream Home Before It Hits the Market",
     description:
-      "Our predictive AI matches your preferences with incoming inventory, giving you early access to properties that fit your lifestyle and budget. We'll help you make competitive offers backed by data-driven insights and negotiate the best deal.",
+      "Using sophisticated matching technology, we identify properties that fit your lifestyle before they hit the market - giving you first access to your dream home. Our agents then guide you through negotiations backed by comprehensive market insights.",
     cta: "Start Your Home Search",
   },
   {
@@ -29,7 +29,7 @@ const SERVICES = [
     slug: "market-analysis",
     title: "Know Exactly When to Buy or Sell",
     description:
-      "Our AI forecasting models analyze economic indicators, demographic shifts, and neighborhood trends to predict price movements 6-12 months ahead. Make informed decisions about timing your move to maximize your investment.",
+      "Our proprietary forecasting platform analyzes economic indicators, demographic shifts, and hyper-local trends to predict price movements 6-12 months ahead - giving you the confidence to time your move perfectly.",
     cta: "Get Market Report",
   },
   {
@@ -37,7 +37,7 @@ const SERVICES = [
     slug: "first-time-buyers",
     title: "Navigate Your First Purchase with Confidence",
     description:
-      "Our AI-powered mortgage calculator and affordability analyzer help you understand exactly what you can afford. Combined with expert guidance through every step, we make your first home purchase stress-free.",
+      "Our smart affordability tools combined with expert guidance help you understand exactly what you can afford and navigate every step of your first purchase with confidence.",
     cta: "Schedule Free Consultation",
   },
 ]

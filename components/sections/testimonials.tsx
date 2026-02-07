@@ -12,35 +12,35 @@ const TESTIMONIALS = [
     name: "Sarah Mitchell",
     context: "Seller in Oakridge",
     quote:
-      "The Nexus forecast was spot-on. We listed at exactly the right price and sold in 9 days with multiple offers. Their data gave us the confidence we needed.",
+      "The forecast was incredibly accurate, but it was my agent's negotiation skills that got us $15K over asking. We sold in 9 days with multiple offers - couldn't be happier.",
     rating: 5,
   },
   {
     name: "James Thornton",
     context: "First-Time Buyer",
     quote:
-      "As a first-time buyer, the market felt overwhelming. Nexus showed me exactly which neighborhoods were appreciating and helped me find a home that has already gained equity.",
+      "Their market insights were spot-on. Combined with personal attention from our agent, we found our dream home in just three weeks. They made the whole process feel easy.",
     rating: 5,
   },
   {
     name: "Maria Gonzalez",
     context: "Investor",
     quote:
-      "I rely on data to make investment decisions. Nexus provides the most granular, accurate market intelligence I have found. Their forecasts have directly improved my portfolio returns.",
+      "I loved having access to real data, but what really mattered was having an expert explain what it meant for my situation. Their forecasts have directly improved my portfolio returns.",
     rating: 5,
   },
   {
     name: "David Chen",
     context: "Seller in Maplewood",
     quote:
-      "The digital closing process was seamless. What normally takes weeks of paperwork was handled in days. The forecast accuracy on our home value was within 2% of the final sale.",
+      "The technology was impressive, but our agent's local knowledge made all the difference. The forecast was within 2% of the final sale, and closing was incredibly smooth.",
     rating: 5,
   },
   {
     name: "Emily Parker",
     context: "Buyer in Riverside",
     quote:
-      "Nexus flagged an off-market property that matched every one of our criteria. We would never have found it on traditional listing sites. Truly a next-generation real estate experience.",
+      "Our agent found an off-market property that matched every one of our criteria before it even listed. The combination of technology and personal service truly sets them apart.",
     rating: 5,
   },
 ]

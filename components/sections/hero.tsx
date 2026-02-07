@@ -66,7 +66,7 @@ export function Hero() {
         transition={{ duration: 0.5, delay: 1.1, ease: [0.4, 0.0, 0.2, 1] }}
         className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
       >
-        Leveraging predictive AI to help you buy or sell with confidence.
+        Where advanced market analytics meets personal service - helping you buy or sell with complete confidence.
       </motion.p>
 
       <motion.div

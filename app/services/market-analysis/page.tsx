@@ -44,7 +44,7 @@ export default function MarketAnalysisPage() {
               Know Exactly When to Buy or Sell
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Our AI forecasting models predict price movements 6-12 months ahead, helping you time your move perfectly.
+              Our proprietary forecasting platform predicts price movements 6-12 months ahead, helping you time your move perfectly with expert guidance.
             </p>
             <Button size="lg" asChild>
               <a href="#report">Get Your Market Report</a>

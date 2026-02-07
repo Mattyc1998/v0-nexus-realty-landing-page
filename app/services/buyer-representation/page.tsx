@@ -17,16 +17,16 @@ import { toast } from "sonner"
 
 const STEPS = [
   { number: "01", title: "Define Your Criteria", description: "Tell us your must-haves, budget, and ideal neighborhoods" },
-  { number: "02", title: "AI Property Matching", description: "Get early access to properties that match your preferences" },
+  { number: "02", title: "Smart Property Matching", description: "Get early access to properties that match your preferences" },
   { number: "03", title: "Tour & Evaluate", description: "Visit homes with data-driven insights at your fingertips" },
-  { number: "04", title: "Make Winning Offers", description: "Our AI helps you offer competitively without overpaying" },
+  { number: "04", title: "Make Winning Offers", description: "Your agent helps you offer competitively using market data" },
 ]
 
 const BENEFITS = [
   { title: "Early Access", description: "See properties before they hit the public market" },
-  { title: "Data-Driven Offers", description: "Know exactly what to offer based on AI analysis" },
-  { title: "Avoid Overpricing", description: "Our valuations protect you from overpaying" },
-  { title: "Expert Negotiation", description: "Skilled agents backed by predictive data" },
+  { title: "Data-Driven Offers", description: "Know exactly what to offer based on comprehensive market analysis" },
+  { title: "Avoid Overpricing", description: "Our expert valuations protect you from overpaying" },
+  { title: "Expert Negotiation", description: "Skilled agents backed by comprehensive market data" },
   { title: "Instant Alerts", description: "Get notified immediately when matching properties list" },
   { title: "Investment Analysis", description: "See future value projections for every property" },
 ]
@@ -70,7 +70,7 @@ export default function BuyerRepresentationPage() {
               Find Your Dream Home Before It Hits the Market
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Our predictive AI gives you early access to properties that perfectly match your lifestyle and budget.
+              Using sophisticated matching technology, our agents give you early access to properties that perfectly match your lifestyle and budget.
             </p>
             <Button size="lg" asChild>
               <a href="#search">Start Your Home Search</a>

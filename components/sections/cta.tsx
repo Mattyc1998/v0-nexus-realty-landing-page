@@ -35,7 +35,7 @@ export function CTA() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground"
         >
-          Join thousands of homeowners using predictive AI to make smarter real estate decisions. Get your free forecast in seconds - no obligation, no pressure.
+          Join thousands of homeowners who've made confident decisions with our data-driven insights and expert guidance. Get your free forecast in seconds - no obligation, no pressure.
         </motion.p>
 
         <motion.div

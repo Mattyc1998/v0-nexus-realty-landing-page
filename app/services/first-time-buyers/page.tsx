@@ -45,7 +45,7 @@ export default function FirstTimeBuyersPage() {
               Navigate Your First Purchase with Confidence
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Our AI-powered tools and expert guidance make your first home purchase stress-free and successful.
+              Our smart affordability tools and expert guidance make your first home purchase stress-free and successful.
             </p>
             <Button size="lg" asChild>
               <a href="#consultation">Schedule Free Consultation</a>
