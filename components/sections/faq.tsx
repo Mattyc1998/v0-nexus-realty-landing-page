@@ -23,7 +23,7 @@ const FAQ_ITEMS = [
   {
     question: "What areas do you serve?",
     answer:
-      "We serve the greater metropolitan area including downtown, suburbs, and surrounding neighborhoods. Our platform tracks data across 50+ micro-markets, combined with our agents' deep local knowledge to provide accurate insights for your specific location.",
+      "We serve the greater metropolitan area including downtown, suburbs, and surrounding neighbourhoods. Our platform tracks data across 50+ micro-markets, combined with our agents' deep local knowledge to provide accurate insights for your specific location.",
   },
   {
     question: "Is this a tech company or a real brokerage?",
@@ -38,7 +38,7 @@ const FAQ_ITEMS = [
   {
     question: "What's included in your free home valuation?",
     answer:
-      "You'll receive a detailed report with your current home value, 2026 forecast, neighborhood trends, comparable sales, and personalized recommendations - all at no cost with zero obligation.",
+      "You'll receive a detailed report with your current home value, 2026 forecast, neighbourhood trends, comparable sales, and personalised recommendations - all at no cost with zero obligation.",
   },
 ]
 
@@ -56,50 +56,61 @@ const itemVariants = {
 }
 
 export function FAQ() {
-  const { ref, isVisible } = useScrollAnimation(0.6)
+  const { ref, isVisible } = useScrollAnimation(0.3)
 
   return (
     <section id="faq" className="py-20" ref={ref}>
-      <div className="mx-auto max-w-3xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
-            FAQ
-          </p>
-        </motion.div>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-10 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
-        >
-          Common Questions.
-        </motion.h2>
-
-        <Accordion type="single" collapsible className="w-full">
-          {FAQ_ITEMS.map((item, i) => (
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-16 items-start">
+          {/* Left side - Header */}
+          <div>
             <motion.div
-              key={i}
-              custom={i}
-              initial="hidden"
-              animate={isVisible ? "visible" : "hidden"}
-              variants={itemVariants}
+              initial={{ opacity: 0, x: -30 }}
+              animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+              transition={{ duration: 0.5 }}
             >
-              <AccordionItem value={`item-${i}`} className="border-l-2 border-transparent hover:border-primary pl-4 transition-all duration-300">
-                <AccordionTrigger className="text-left text-base font-medium hover:no-underline hover:text-primary transition-colors">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
+              <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
+                FAQ
+              </p>
             </motion.div>
-          ))}
-        </Accordion>
+
+            <motion.h2
+              initial={{ opacity: 0, x: -30 }}
+              animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-serif text-3xl font-bold text-foreground md:text-4xl leading-tight"
+            >
+              Common Questions.
+            </motion.h2>
+          </div>
+
+          {/* Right side - Accordion */}
+          <div>
+            <Accordion type="single" collapsible className="w-full">
+              {FAQ_ITEMS.map((item, i) => (
+                <motion.div
+                  key={i}
+                  custom={i}
+                  initial="hidden"
+                  animate={isVisible ? "visible" : "hidden"}
+                  variants={itemVariants}
+                >
+                  <AccordionItem 
+                    value={`item-${i}`} 
+                    className="border-b border-border py-4"
+                  >
+                    <AccordionTrigger className="text-left text-base font-medium hover:no-underline hover:text-primary transition-colors py-0">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed pt-3">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </div>
+        </div>
       </div>
     </section>
   )
