@@ -29,15 +29,19 @@ const cardVariants = {
 }
 
 export function FeaturedProperties() {
-  const { ref, isVisible } = useScrollAnimation(0.6)
+  const { ref, isVisible } = useScrollAnimation(0.3)
   const featuredProperties = getFeaturedProperties(9)
+
+  if (featuredProperties.length === 0) {
+    return null
+  }
 
   return (
     <section id="featured-properties" className="py-20 bg-muted/30" ref={ref}>
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+          initial={{ opacity: 1, x: 0 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
@@ -46,18 +50,18 @@ export function FeaturedProperties() {
         </motion.div>
 
         <motion.h2
-          initial={{ opacity: 0, x: -30 }}
-          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
+          initial={{ opacity: 1, x: 0 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
           className="mb-4 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
         >
           Featured Properties.
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, x: -30 }}
-          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          initial={{ opacity: 1, x: 0 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
           className="mb-12 text-muted-foreground max-w-2xl"
         >
           Explore our current listings and find your next home
@@ -65,8 +69,8 @@ export function FeaturedProperties() {
 
         <motion.div
           variants={containerVariants}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
+          initial="visible"
+          animate="visible"
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {featuredProperties.map((property) => (
@@ -77,16 +81,16 @@ export function FeaturedProperties() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="mt-12 text-center"
         >
           <Button size="lg" asChild>
             <Link href="/properties">View All Properties</Link>
           </Button>
           <p className="mt-3 text-sm text-muted-foreground">
-            Browse our complete inventory of {featuredProperties.length}+ homes
+            Browse our complete inventory of 25+ homes
           </p>
         </motion.div>
       </div>
