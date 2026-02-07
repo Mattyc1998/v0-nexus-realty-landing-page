@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Search, SlidersHorizontal, Grid3x3, List, X } from "lucide-react"
 import { Navbar } from "@/components/sections/navbar"
@@ -20,6 +20,11 @@ import { PROPERTIES, formatPrice } from "@/lib/properties-data"
 type SortOption = "newest" | "price-low" | "price-high" | "bedrooms" | "sqft"
 
 export default function PropertiesPage() {
+  // Scroll to top on page load for smooth transition
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" })
+  }, [])
+
   const [searchQuery, setSearchQuery] = useState("")
   const [priceRange, setPriceRange] = useState([0, 1500000])
   const [bedrooms, setBedrooms] = useState<string>("any")
@@ -256,9 +261,9 @@ export default function PropertiesPage() {
         <section className="py-12 px-6 bg-muted/30">
           <div className="mx-auto max-w-7xl">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
             >
               <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
                 Find Your Perfect Home
