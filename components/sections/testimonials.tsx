@@ -1,9 +1,11 @@
 "use client"
 
 import { useRef } from "react"
+import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { TestimonialCard } from "@/components/testimonial-card"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const TESTIMONIALS = [
   {
@@ -44,6 +46,7 @@ const TESTIMONIALS = [
 ]
 
 export function Testimonials() {
+  const { ref, isVisible } = useScrollAnimation(0.6)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   function scroll(direction: "left" | "right") {
@@ -53,18 +56,36 @@ export function Testimonials() {
   }
 
   return (
-    <section id="testimonials" className="py-20" aria-label="Client testimonials">
+    <section id="testimonials" className="py-20" aria-label="Client testimonials" ref={ref}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-10 flex items-end justify-between">
           <div>
-            <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
-              Testimonials
-            </p>
-            <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl text-balance">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
+                Testimonials
+              </p>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, x: -30 }}
+              animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
+            >
               Data-Driven Results.
-            </h2>
+            </motion.h2>
           </div>
-          <div className="hidden gap-2 sm:flex">
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="hidden gap-2 sm:flex"
+          >
             <Button
               variant="outline"
               size="icon"
@@ -81,12 +102,15 @@ export function Testimonials() {
             >
               <ChevronRight className="h-5 w-5" />
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      <div
+      <motion.div
         ref={scrollRef}
+        initial={{ opacity: 0 }}
+        animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
         role="region"
         aria-label="Testimonials carousel"
         className="scroll-snap-x hide-scrollbar flex gap-6 overflow-x-auto px-6 pb-4 lg:px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]"
@@ -94,10 +118,14 @@ export function Testimonials() {
         {TESTIMONIALS.map((t) => (
           <TestimonialCard key={t.name} {...t} />
         ))}
-      </div>
+      </motion.div>
 
-      {/* Mobile nav arrows */}
-      <div className="mt-6 flex justify-center gap-2 sm:hidden">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="mt-6 flex justify-center gap-2 sm:hidden"
+      >
         <Button
           variant="outline"
           size="icon"
@@ -114,7 +142,7 @@ export function Testimonials() {
         >
           <ChevronRight className="h-5 w-5" />
         </Button>
-      </div>
+      </motion.div>
     </section>
   )
 }
