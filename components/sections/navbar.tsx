@@ -82,7 +82,7 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       "text-sm font-medium transition-colors hover:text-primary relative group",
-                      isActive ? "text-primary" : "text-muted-foreground"
+                      isActive ? "text-primary" : "text-foreground"
                     )}
                   >
                     {link.label}
@@ -155,7 +155,7 @@ export function Navbar() {
                       onClick={() => setMobileOpen(false)}
                       className={cn(
                         "block rounded-lg px-4 py-3 text-sm font-medium transition-colors hover:bg-secondary",
-                        isActive ? "text-primary" : "text-muted-foreground"
+                        isActive ? "text-primary" : "text-foreground"
                       )}
                     >
                       {link.label}
