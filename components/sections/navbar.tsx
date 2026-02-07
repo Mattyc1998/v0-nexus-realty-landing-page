@@ -12,6 +12,7 @@ import { useScrollProgress } from "@/hooks/use-scroll-animation"
 const NAV_LINKS = [
   { label: "Home", href: "/#home" },
   { label: "Services", href: "/#services" },
+  { label: "Search Homes", href: "/properties" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/contact" },
@@ -72,6 +73,8 @@ export function Navbar() {
               const isActive =
                 link.href === "/contact"
                   ? pathname === "/contact"
+                  : link.href === "/properties"
+                  ? pathname?.startsWith("/properties")
                   : pathname === "/" && link.href.startsWith("/#")
               return (
                 <li key={link.label}>
@@ -137,6 +140,8 @@ export function Navbar() {
                 const isActive =
                   link.href === "/contact"
                     ? pathname === "/contact"
+                    : link.href === "/properties"
+                    ? pathname?.startsWith("/properties")
                     : pathname === "/" && link.href.startsWith("/#")
                 return (
                   <motion.li

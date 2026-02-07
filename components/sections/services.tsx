@@ -19,9 +19,9 @@ const SERVICES = [
   {
     icon: Key,
     slug: "buyer-representation",
-    title: "Find Your Dream Home Before It Hits the Market",
+    title: "Get Matched with Your Ideal Home the Moment It's Available",
     description:
-      "Using sophisticated matching technology, we identify properties that fit your lifestyle before they hit the market - giving you first access to your dream home. Our agents then guide you through negotiations backed by comprehensive market insights.",
+      "Our smart property matching system sends you instant alerts when homes that fit your criteria hit the market. Combined with our agents' extensive network and industry relationships, you'll often hear about opportunities before they're widely advertised - giving you a competitive edge in competitive markets.",
     cta: "Start Your Home Search",
   },
   {

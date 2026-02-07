@@ -119,7 +119,7 @@ export function Footer() {
             &copy; 2026 Nexus Realty Group. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground">
-            Equal Housing Opportunity &middot; REALTOR&reg;
+            Registered Estate Agents
           </p>
         </motion.div>
       </div>
