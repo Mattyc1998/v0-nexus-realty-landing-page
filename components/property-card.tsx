@@ -32,10 +32,11 @@ export function PropertyCard({ property, className = "" }: PropertyCardProps) {
       >
         <div className="relative aspect-[16/10] overflow-hidden">
           <motion.div
+            className="relative w-full h-full"
             style={{
               scale: isHovered ? 1.05 : 1,
-              transition: "scale 400ms ease-out",
             }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
           >
             <Image
               src={property.images[0]}
