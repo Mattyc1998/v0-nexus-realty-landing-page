@@ -11,13 +11,14 @@ export function CTA() {
   const [dialogOpen, setDialogOpen] = useState(false)
 
   return (
-    <section className="relative py-24 overflow-hidden" ref={ref}>
+    <section className="relative py-24 overflow-hidden spotlight warm-glow" ref={ref}>
       <motion.div
         className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent"
         initial={{ opacity: 0 }}
         animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1 }}
       />
+      <div className="absolute inset-0 bg-gradient-to-r from-gold-400/5 via-transparent to-gold-400/5 pointer-events-none" />
 
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <motion.h2
@@ -49,26 +50,10 @@ export function CTA() {
         >
           <Button
             size="lg"
-            className="mt-8 h-12 text-base font-semibold relative overflow-hidden"
+            className="mt-8 h-12 text-base font-semibold relative overflow-hidden luxury-pulse transition-luxury hover:scale-105"
             onClick={() => setDialogOpen(true)}
           >
-            <motion.span
-              className="relative z-10"
-              animate={{
-                boxShadow: [
-                  "0 0 0 0 rgba(65, 105, 225, 0)",
-                  "0 0 25px 8px rgba(65, 105, 225, 0.4)",
-                  "0 0 0 0 rgba(65, 105, 225, 0)",
-                ],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              Get Your Free Forecast
-            </motion.span>
+            Get Your Free Forecast
           </Button>
         </motion.div>
       </div>

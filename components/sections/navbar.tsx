@@ -47,9 +47,9 @@ export function Navbar() {
 
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-400",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "border-b border-border bg-background/80 backdrop-blur-lg shadow-md"
+            ? "glass-effect shadow-luxury-md"
             : "bg-transparent"
         )}
       >
@@ -83,25 +83,9 @@ export function Navbar() {
           </ul>
 
           <div className="hidden md:block">
-            <motion.div
-              animate={{
-                boxShadow: [
-                  "0 0 0 0 rgba(65, 105, 225, 0)",
-                  "0 0 15px 3px rgba(65, 105, 225, 0.3)",
-                  "0 0 0 0 rgba(65, 105, 225, 0)",
-                ],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="rounded-md"
-            >
-              <Button asChild size="sm">
-                <Link href="/#home">Get Forecast</Link>
-              </Button>
-            </motion.div>
+            <Button asChild size="sm" className="luxury-pulse transition-luxury hover:scale-105">
+              <Link href="/#home">Get Forecast</Link>
+            </Button>
           </div>
 
           <Button
@@ -122,7 +106,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="border-t border-border bg-background/95 backdrop-blur-lg md:hidden"
+            className="border-t border-border glass-effect md:hidden"
           >
             <ul className="flex flex-col gap-1 px-6 py-4">
               {NAV_LINKS.map((link, i) => (

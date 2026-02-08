@@ -64,13 +64,14 @@ export function Advantages() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative py-20 overflow-hidden" ref={ref}>
+    <section className="relative py-20 overflow-hidden warm-glow" ref={ref}>
       <motion.div
         className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"
         initial={{ opacity: 0 }}
         animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1 }}
       />
+      <div className="absolute inset-0 bg-gradient-to-r from-gold-400/5 via-transparent to-bronze-400/5 pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <motion.div
@@ -108,13 +109,10 @@ export function Advantages() {
                 variants={cardVariants}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className="group rounded-lg border border-border bg-card p-8 transition-all duration-300"
+                className="group rounded-lg glass-card p-8 transition-luxury shadow-luxury-hover"
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
-                  boxShadow: isHovered
-                    ? "0 20px 40px rgba(0, 0, 0, 0.3)"
-                    : "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  borderColor: isHovered ? "hsl(var(--primary) / 0.4)" : "hsl(var(--border))",
+                  borderColor: isHovered ? "hsl(var(--primary) / 0.4)" : "rgba(255, 255, 255, 0.06)",
                 }}
               >
                 <motion.div

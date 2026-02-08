@@ -117,13 +117,10 @@ export function Services() {
                 variants={cardVariants}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className="relative group flex flex-col justify-between rounded-lg border border-border bg-card p-10 transition-all duration-300"
+                className="relative group flex flex-col justify-between rounded-lg glass-card p-10 transition-luxury shadow-luxury-hover"
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
-                  boxShadow: isHovered
-                    ? "0 20px 40px rgba(0, 0, 0, 0.3)"
-                    : "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  borderColor: isHovered ? "hsl(var(--primary))" : "hsl(var(--border))",
+                  borderColor: isHovered ? "hsl(var(--primary))" : "rgba(255, 255, 255, 0.06)",
                   opacity: hoveredIndex !== null && !isHovered ? 0.7 : 1,
                 }}
               >

@@ -21,7 +21,7 @@ export function Hero() {
   const words = ["The", "Future", "of", "Local", "Living."]
 
   return (
-    <section id="home" className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 py-24 text-center overflow-hidden">
+    <section id="home" className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 py-24 text-center overflow-hidden spotlight">
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20"
@@ -94,26 +94,10 @@ export function Hero() {
         >
           <Button
             size="lg"
-            className="h-12 shrink-0 text-base font-semibold relative overflow-hidden group"
+            className="h-12 shrink-0 text-base font-semibold relative overflow-hidden group luxury-pulse transition-luxury hover:scale-105"
             onClick={() => setDialogOpen(true)}
           >
-            <motion.span
-              className="relative z-10"
-              animate={{
-                boxShadow: [
-                  "0 0 0 0 rgba(65, 105, 225, 0)",
-                  "0 0 20px 5px rgba(65, 105, 225, 0.3)",
-                  "0 0 0 0 rgba(65, 105, 225, 0)",
-                ],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              Get 2026 Value Forecast
-            </motion.span>
+            Get 2026 Value Forecast
           </Button>
         </motion.div>
       </motion.div>

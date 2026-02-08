@@ -22,21 +22,18 @@ export function PropertyCard({ property, className = "" }: PropertyCardProps) {
       <motion.div
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
-        className={`group relative overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 cursor-pointer ${className}`}
+        className={`group relative overflow-hidden rounded-lg glass-card shadow-luxury-hover cursor-pointer ${className}`}
         style={{
           transform: isHovered ? "translateY(-8px)" : "translateY(0)",
-          boxShadow: isHovered
-            ? "0 20px 40px rgba(0, 0, 0, 0.3)"
-            : "0 4px 6px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <div className="relative aspect-[16/10] overflow-hidden">
+        <div className="relative aspect-[16/10] overflow-hidden vignette">
           <motion.div
             className="relative w-full h-full"
             style={{
-              scale: isHovered ? 1.05 : 1,
+              scale: isHovered ? 1.08 : 1,
             }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <Image
               src={property.images[0]}
@@ -45,6 +42,7 @@ export function PropertyCard({ property, className = "" }: PropertyCardProps) {
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
           </motion.div>
 
           {property.badge && (
@@ -88,7 +86,7 @@ export function PropertyCard({ property, className = "" }: PropertyCardProps) {
             {property.type}
           </Badge>
 
-          <Button variant="outline" className="w-full">
+          <Button variant="outline" className="w-full transition-luxury hover:scale-[1.02] hover:bg-primary hover:text-primary-foreground">
             View Details
           </Button>
         </div>

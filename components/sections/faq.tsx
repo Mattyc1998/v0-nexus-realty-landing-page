@@ -59,7 +59,7 @@ export function FAQ() {
   const { ref, isVisible } = useScrollAnimation(0.3)
 
   return (
-    <section id="faq" className="py-20" ref={ref}>
+    <section id="faq" className="py-20 warm-glow" ref={ref}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-[280px_1fr] gap-16 items-start">
           {/* Left side - Header */}
