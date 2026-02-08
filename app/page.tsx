@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/sections/testimonials"
 import { CTA } from "@/components/sections/cta"
 import { Footer } from "@/components/sections/footer"
 import { BackToTop } from "@/components/back-to-top"
+import { TrustBadges } from "@/components/trust-badges"
 
 export default function Page() {
   return (
@@ -17,6 +18,7 @@ export default function Page() {
       <main>
         <Hero />
         <Services />
+        <TrustBadges />
         <FeaturedProperties />
         <Advantages />
         <RecentlySold />

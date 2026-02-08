@@ -1,12 +1,13 @@
 "use client"
 
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { LeadCaptureDialog } from "@/components/lead-capture-dialog"
 import { AnimatedCounter } from "@/components/animated-counter"
+import { MagneticButton } from "@/components/magnetic-button"
 
 const STATS = [
   { end: 450, suffix: "+", label: "Homes Sold" },
@@ -17,6 +18,12 @@ const STATS = [
 
 export function Hero() {
   const [dialogOpen, setDialogOpen] = useState(false)
+  const { scrollY } = useScroll()
+
+  const y1 = useTransform(scrollY, [0, 500], [0, 150])
+  const y2 = useTransform(scrollY, [0, 500], [0, 100])
+  const y3 = useTransform(scrollY, [0, 500], [0, 50])
+  const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
   const words = ["The", "Future", "of", "Local", "Living."]
 
@@ -30,19 +37,39 @@ export function Hero() {
         transition={{ duration: 1, ease: "easeOut" }}
         style={{
           background: "radial-gradient(circle, hsl(227 100% 59% / 0.35) 0%, transparent 70%)",
+          y: y1,
         }}
       />
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-4 text-sm font-medium uppercase tracking-widest text-primary"
-      >
-        Nexus Realty Group
-      </motion.p>
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-[20%] top-[20%] -z-10 h-[300px] w-[300px] rounded-full opacity-10"
+        style={{
+          background: "radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%)",
+          y: y2,
+        }}
+      />
 
-      <h1 className="mx-auto max-w-3xl font-serif text-5xl font-bold leading-tight tracking-tight text-foreground md:text-7xl text-balance">
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[20%] bottom-[20%] -z-10 h-[400px] w-[400px] rounded-full opacity-10"
+        style={{
+          background: "radial-gradient(circle, hsl(227 100% 59% / 0.3) 0%, transparent 70%)",
+          y: y3,
+        }}
+      />
+
+      <motion.div style={{ opacity }} className="w-full">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-4 text-sm font-medium uppercase tracking-widest text-primary"
+        >
+          Nexus Realty Group
+        </motion.p>
+
+        <h1 className="mx-auto max-w-3xl font-serif text-5xl font-bold leading-tight tracking-tight text-foreground md:text-7xl text-balance">
         {words.map((word, index) => (
           <motion.span
             key={index}
@@ -92,13 +119,12 @@ export function Hero() {
             ease: [0.68, -0.55, 0.265, 1.55],
           }}
         >
-          <Button
-            size="lg"
-            className="h-12 shrink-0 text-base font-semibold relative overflow-hidden group luxury-pulse transition-luxury hover:scale-105"
+          <MagneticButton
+            className="h-12 shrink-0 text-base font-semibold relative overflow-hidden group luxury-pulse transition-luxury bg-primary text-primary-foreground rounded-md px-6 hover:scale-105"
             onClick={() => setDialogOpen(true)}
           >
             Get 2026 Value Forecast
-          </Button>
+          </MagneticButton>
         </motion.div>
       </motion.div>
 
@@ -133,6 +159,7 @@ export function Hero() {
             </span>
           </div>
         ))}
+      </motion.div>
       </motion.div>
 
       <LeadCaptureDialog open={dialogOpen} onOpenChange={setDialogOpen} />
