@@ -12,9 +12,9 @@ import {
   MapPin,
   Send,
   TrendingUp,
-  BarChart3,
-  Shield,
-  Sparkles,
+  Home,
+  Heart,
+  Users,
 } from "lucide-react"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
@@ -108,7 +108,7 @@ export default function ContactPage() {
                   {"Let's Start a Conversation."}
                 </h1>
                 <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
-                  Whether you have a question about our services, want to
+                  Whether you have a question about buying or selling, want to
                   discuss your property, or just want to say hello, we would
                   love to hear from you.
                 </p>
@@ -123,7 +123,7 @@ export default function ContactPage() {
                         Email
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        hello@nexusrealty.com
+                        hello@nexusrealty.co.uk
                       </p>
                     </div>
                   </div>
@@ -136,7 +136,7 @@ export default function ContactPage() {
                         Phone
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        (555) 123-4567
+                        01642 123 456
                       </p>
                     </div>
                   </div>
@@ -149,9 +149,9 @@ export default function ContactPage() {
                         Office
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        123 Innovation Drive, Suite 400
+                        45 Linthorpe Road
                         <br />
-                        San Francisco, CA 94105
+                        Middlesbrough, TS1 1RJ
                       </p>
                     </div>
                   </div>
@@ -201,7 +201,7 @@ export default function ContactPage() {
                         <Input
                           id="name"
                           name="name"
-                          placeholder="John Doe"
+                          placeholder="John Smith"
                           value={formData.name}
                           onChange={handleChange}
                           className="h-11"
@@ -226,7 +226,7 @@ export default function ContactPage() {
                             id="email"
                             name="email"
                             type="email"
-                            placeholder="john@example.com"
+                            placeholder="john@example.co.uk"
                             value={formData.email}
                             onChange={handleChange}
                             className="h-11"
@@ -249,7 +249,7 @@ export default function ContactPage() {
                             id="phone"
                             name="phone"
                             type="tel"
-                            placeholder="(555) 123-4567"
+                            placeholder="01642 123 456"
                             value={formData.phone}
                             onChange={handleChange}
                             className="h-11"
@@ -273,7 +273,7 @@ export default function ContactPage() {
                         <Textarea
                           id="message"
                           name="message"
-                          placeholder="Tell us about your real estate needs..."
+                          placeholder="Tell us about your property needs..."
                           value={formData.message}
                           onChange={handleChange}
                           rows={5}
@@ -303,12 +303,12 @@ export default function ContactPage() {
               Take the Next Step
             </p>
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-5xl text-balance">
-              Discover what your property could be worth in 2026.
+              Find out what your property is worth today.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Our AI-powered forecast model analyzes market trends, neighborhood
-              data, and economic indicators to give you a personalized valuation
-              — completely free.
+              Our local experts will provide you with an honest, accurate
+              valuation based on current market conditions and recent sales in
+              your area — completely free with no obligation.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button
@@ -316,8 +316,8 @@ export default function ContactPage() {
                 className="h-12 gap-2 text-base font-semibold"
                 onClick={() => setForecastOpen(true)}
               >
-                <TrendingUp className="h-5 w-5" />
-                Get 2026 Value Forecast
+                <Home className="h-5 w-5" />
+                Get Your Free Valuation
               </Button>
               <Button
                 size="lg"
@@ -337,46 +337,45 @@ export default function ContactPage() {
           <DialogContent className="sm:max-w-lg">
             <DialogHeader>
               <DialogTitle className="font-serif text-xl">
-                How Our AI Forecast Works
+                How We Value Your Property
               </DialogTitle>
               <DialogDescription>
-                A look behind our predictive real estate model.
+                Our approach to accurate home valuations.
               </DialogDescription>
             </DialogHeader>
             <div className="flex flex-col gap-5 py-4">
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Nexus Realty Group leverages advanced machine learning trained on
-                over 10 years of hyperlocal sales data, economic indicators, and
-                neighborhood-level trends to project property values 12 months
-                into the future.
+                Nexus Realty Group combines years of local expertise with
+                detailed analysis of recent sales, current market conditions, and
+                your property's unique features to give you an accurate valuation.
               </p>
 
               <div className="grid gap-4 sm:grid-cols-3">
                 <div className="flex flex-col items-center gap-2 rounded-lg border border-border bg-secondary/50 p-4 text-center">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                    <BarChart3 className="h-5 w-5 text-primary" />
+                    <Home className="h-5 w-5 text-primary" />
                   </div>
                   <p className="text-sm font-semibold text-foreground">
-                    Data-Driven
+                    Local Knowledge
                   </p>
                   <p className="text-xs leading-relaxed text-muted-foreground">
-                    Analyzes 50+ market variables per property.
+                    We know Middlesbrough and the North East inside out.
                   </p>
                 </div>
                 <div className="flex flex-col items-center gap-2 rounded-lg border border-border bg-secondary/50 p-4 text-center">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                    <Shield className="h-5 w-5 text-primary" />
+                    <Users className="h-5 w-5 text-primary" />
                   </div>
                   <p className="text-sm font-semibold text-foreground">
-                    94% Accuracy
+                    Expert Agents
                   </p>
                   <p className="text-xs leading-relaxed text-muted-foreground">
-                    Backtested against 3 years of actual closings.
+                    Years of experience helping local homeowners.
                   </p>
                 </div>
                 <div className="flex flex-col items-center gap-2 rounded-lg border border-border bg-secondary/50 p-4 text-center">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                    <Sparkles className="h-5 w-5 text-primary" />
+                    <Heart className="h-5 w-5 text-primary" />
                   </div>
                   <p className="text-sm font-semibold text-foreground">
                     Free Report
@@ -388,9 +387,9 @@ export default function ContactPage() {
               </div>
 
               <p className="text-xs text-muted-foreground">
-                Your report includes a projected value range, comparable sales
-                analysis, neighborhood trend summary, and personalized
-                recommendations from our team.
+                Your report includes an accurate valuation range, recent comparable
+                sales, local market trends, and personalized recommendations from
+                our team.
               </p>
             </div>
 
@@ -408,7 +407,7 @@ export default function ContactPage() {
                 }}
                 className="gap-1.5"
               >
-                Get My Forecast
+                Get My Valuation
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
