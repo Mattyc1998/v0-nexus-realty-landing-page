@@ -35,7 +35,7 @@ export function Hero() {
     })
   }
 
-  const words = ["Your", "Home", "Journey", "Starts", "Here."]
+  const words = ["Your", "Dream", "Home", "Awaits."]
 
   return (
     <section 
