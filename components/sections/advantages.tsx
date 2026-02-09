@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { TrendingUp, MapPin, FileCheck } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { TrendChart } from "@/components/trend-chart"
 
 const ADVANTAGES = [
   {
@@ -87,11 +88,15 @@ export function Advantages() {
         <motion.h2
           initial={{ opacity: 0, x: -30 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
           className="mb-12 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
         >
           The Nexus Advantage.
         </motion.h2>
+
+        <div className="mb-16">
+          <TrendChart />
+        </div>
 
         <motion.div
           variants={containerVariants}
@@ -126,7 +131,7 @@ export function Advantages() {
                   <Icon className="h-6 w-6 text-primary" />
                 </motion.div>
 
-                <h3 className="mb-3 font-serif text-xl font-bold text-foreground">
+                <h3 className="mb-3 font-serif text-xl font-bold text-foreground hover-weight-bold transition-all duration-300">
                   {item.title}
                 </h3>
 

@@ -1,4 +1,4 @@
-import { Star } from "lucide-react"
+import { Star, PlayCircle } from "lucide-react"
 
 interface TestimonialCardProps {
   name: string
@@ -9,8 +9,13 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ name, context, quote, rating }: TestimonialCardProps) {
   return (
-    <div className="flex w-80 shrink-0 flex-col justify-between rounded-lg glass-card p-6 sm:w-96 border-glow shadow-luxury-md hover:shadow-luxury-lg transition-luxury relative group">
-      <div>
+    <div className="flex w-80 shrink-0 flex-col justify-between rounded-lg glass-card p-6 sm:w-96 border-glow shadow-luxury-md hover:shadow-luxury-lg transition-luxury relative group cursor-pointer">
+      {/* Video Play Overlay */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <PlayCircle className="w-16 h-16 text-primary/40 pulse" />
+      </div>
+
+      <div className="relative z-0">
         <div className="mb-4 flex gap-0.5">
           {Array.from({ length: 5 }).map((_, i) => (
             <Star

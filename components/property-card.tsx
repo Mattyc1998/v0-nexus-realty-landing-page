@@ -22,11 +22,23 @@ export function PropertyCard({ property, className = "" }: PropertyCardProps) {
       <motion.div
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
-        className={`group relative overflow-hidden rounded-lg glass-card shadow-luxury-hover cursor-pointer ${className}`}
+        className={`group relative overflow-hidden rounded-lg glass-card shadow-luxury-hover cursor-pointer transition-all duration-500 ${className}`}
         style={{
           transform: isHovered ? "translateY(-8px)" : "translateY(0)",
         }}
       >
+        {/* Border Shine Animation */}
+        <motion.div
+          className="absolute inset-0 z-10 pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 1 : 0 }}
+        >
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent translate-x-full group-hover:-translate-x-full transition-transform duration-1000" />
+          <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-primary/50 to-transparent -translate-y-full group-hover:translate-y-full transition-transform duration-1000" />
+          <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-primary/50 to-transparent translate-y-full group-hover:-translate-y-full transition-transform duration-1000" />
+        </motion.div>
+
         <div className="relative aspect-[16/10] overflow-hidden vignette">
           <motion.div
             className="relative w-full h-full"
@@ -63,7 +75,7 @@ export function PropertyCard({ property, className = "" }: PropertyCardProps) {
 
         <div className="p-6">
           <div className="mb-3">
-            <p className="text-2xl font-bold text-foreground">{formatPrice(property.price)}</p>
+            <p className="text-2xl font-bold text-foreground font-tnum">{formatPrice(property.price)}</p>
             <p className="mt-1 text-sm text-muted-foreground">{property.address}, {property.area}</p>
           </div>
 

@@ -2,18 +2,21 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { Toaster } from '@/components/ui/sonner'
+import { CustomCursor } from "@/components/custom-cursor"
+import { BackgroundMesh } from "@/components/background-mesh"
 
 import './globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  weight: ['400', '500', '600', '700', '800'],
 })
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
-  weight: ['700'],
+  weight: ['400', '500', '600', '700', '800'],
 })
 
 export const metadata: Metadata = {
@@ -62,6 +65,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased">
+        <BackgroundMesh />
+        <CustomCursor />
         {children}
         <Toaster />
       </body>
