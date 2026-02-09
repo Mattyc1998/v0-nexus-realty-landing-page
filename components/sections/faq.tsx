@@ -59,8 +59,18 @@ export function FAQ() {
   const { ref, isVisible } = useScrollAnimation(0.3)
 
   return (
-    <section id="faq" className="py-20 warm-glow" ref={ref}>
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="faq" className="relative py-20 overflow-hidden" ref={ref}>
+      {/* Background gradient - slightly lighter */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background -z-10" />
+      
+      {/* Warm accent gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-gold-400/3 pointer-events-none -z-10" />
+      
+      {/* Glow effects - diagonal positioning */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-[120px] -z-10" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-[280px_1fr] gap-16 items-start">
           {/* Left side - Header */}
           <div>
@@ -84,7 +94,7 @@ export function FAQ() {
             </motion.h2>
           </div>
 
-          {/* Right side - Accordion */}
+          {/* Right side - Accordion with glass effect */}
           <div>
             <Accordion type="single" collapsible className="w-full">
               {FAQ_ITEMS.map((item, i) => (
@@ -97,12 +107,12 @@ export function FAQ() {
                 >
                   <AccordionItem 
                     value={`item-${i}`} 
-                    className="border-b border-border py-4"
+                    className="border-b border-border/50 py-4 group"
                   >
-                    <AccordionTrigger className="text-left text-base font-medium hover:no-underline hover:text-primary transition-colors py-0">
+                    <AccordionTrigger className="text-left text-base font-semibold hover:no-underline hover:text-primary transition-colors py-0 [&[data-state=open]]:text-primary">
                       {item.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground leading-relaxed pt-3">
+                    <AccordionContent className="text-muted-foreground leading-relaxed pt-3 pr-4">
                       {item.answer}
                     </AccordionContent>
                   </AccordionItem>
