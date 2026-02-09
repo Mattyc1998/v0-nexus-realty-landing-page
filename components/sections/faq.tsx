@@ -11,34 +11,34 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const FAQ_ITEMS = [
   {
-    question: "How accurate are your market forecasts?",
+    question: "How do you determine my home's value?",
     answer:
-      "Our forecasting platform has achieved 94% accuracy by analyzing comprehensive market data. However, we always combine these data insights with our agents' local expertise and knowledge of your specific property to provide the most accurate valuation possible.",
-  },
-  {
-    question: "Is my data sold to third parties?",
-    answer:
-      "Never. Your privacy is our priority; your data stays with Nexus. We use bank-level encryption and strict data governance policies to ensure your information is protected at all times.",
+      "We look at recent sales in your neighborhood, current market conditions, your home's unique features, and local trends. Our agents have years of experience in the area and will give you an honest, accurate assessment based on what homes like yours are actually selling for.",
   },
   {
     question: "What areas do you serve?",
     answer:
-      "We serve the greater metropolitan area including downtown, suburbs, and surrounding neighbourhoods. Our platform tracks data across 50+ micro-markets, combined with our agents' deep local knowledge to provide accurate insights for your specific location.",
+      "We serve the greater metropolitan area including downtown, suburbs, and surrounding neighborhoods. Our agents live and work in these communities, so we know them inside and out - from the best streets to the local schools and amenities.",
   },
   {
-    question: "Is this a tech company or a real brokerage?",
+    question: "How long does it typically take to sell a home?",
     answer:
-      "We're a full-service real estate brokerage that uses advanced technology to serve you better. While our data platform gives us an edge in pricing and forecasting, you'll work directly with experienced local agents who provide personal guidance throughout your transaction.",
+      "It depends on your property and market conditions, but most of our listings sell within 2-4 weeks. We'll help you price it right, stage it beautifully, and market it aggressively to get you the best offer as quickly as possible.",
   },
   {
     question: "Do you work with both buyers and sellers?",
     answer:
-      "Yes, we provide full-service representation for both buyers and sellers. Our data-driven tools combined with expert agent guidance give you a competitive advantage whether you're purchasing your dream home or selling for maximum value.",
+      "Yes! Whether you're buying your first home, selling to upgrade, or investing in property, we're here to help. Our agents will guide you through every step and make sure you get the best possible outcome.",
   },
   {
     question: "What's included in your free home valuation?",
     answer:
-      "You'll receive a detailed report with your current home value, 2026 forecast, neighbourhood trends, comparable sales, and personalised recommendations - all at no cost with zero obligation.",
+      "You'll receive a detailed report showing your current home value, recent comparable sales in your area, market trends, and personalized recommendations. There's absolutely no cost and no obligation - we just want to help you understand what your home is worth.",
+  },
+  {
+    question: "What makes Nexus different from other agents?",
+    answer:
+      "We combine local expertise with exceptional personal service. Our agents genuinely care about finding you the right home or getting you top dollar for your sale. We're responsive, honest, and we'll be there for you from start to finish.",
   },
 ]
 
