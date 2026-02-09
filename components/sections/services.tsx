@@ -85,12 +85,15 @@ export function Services() {
       className="relative py-20 overflow-hidden" 
       ref={ref}
     >
-      {/* Background matching hero - deep black with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black -z-10" />
+      {/* Deep black background with much lighter top/bottom gradients */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/60 via-black to-gray-900/60 -z-10" />
       
-      {/* Stronger glows for brightness without changing base color */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-400/10 rounded-full blur-[120px] -z-10" />
+      {/* MUCH stronger glows for light without a photo */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[140px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-amber-400/12 rounded-full blur-[140px] -z-10" />
+      
+      {/* Central glow for ambient light */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-white/3 rounded-full blur-[150px] -z-10" />
 
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
@@ -132,11 +135,11 @@ export function Services() {
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
                   backgroundColor: isHovered
-                    ? "rgba(20, 20, 20, 0.6)" // Darker, matches hero better
-                    : "rgba(10, 10, 10, 0.4)", // Darker, matches hero better
+                    ? "rgba(30, 30, 30, 0.8)" // Lighter cards
+                    : "rgba(20, 20, 20, 0.6)", // Lighter cards
                   borderColor: isHovered
-                    ? "rgba(255, 255, 255, 0.25)"
-                    : "rgba(255, 255, 255, 0.15)",
+                    ? "rgba(255, 255, 255, 0.3)"
+                    : "rgba(255, 255, 255, 0.2)",
                   boxShadow: isHovered
                     ? "0 20px 40px rgba(0, 0, 0, 0.4)"
                     : "0 10px 30px rgba(0, 0, 0, 0.3)",
@@ -149,11 +152,11 @@ export function Services() {
                     style={{
                       transform: isHovered ? "rotate(5deg) scale(1.1)" : "rotate(0deg) scale(1)",
                       backgroundColor: isHovered
-                        ? "hsl(var(--primary) / 0.25)"
-                        : "hsl(var(--primary) / 0.15)",
+                        ? "hsl(var(--primary) / 0.3)"
+                        : "hsl(var(--primary) / 0.2)",
                       borderColor: isHovered
-                        ? "hsl(var(--primary) / 0.5)"
-                        : "hsl(var(--primary) / 0.25)",
+                        ? "hsl(var(--primary) / 0.6)"
+                        : "hsl(var(--primary) / 0.3)",
                     }}
                   >
                     <Icon className="h-7 w-7 text-primary" />
@@ -188,7 +191,7 @@ export function Services() {
                 </Button>
               </motion.div>
             )
-          })}
+          }}}
         </motion.div>
       </div>
     </section>
