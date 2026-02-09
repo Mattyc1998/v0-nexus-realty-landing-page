@@ -10,37 +10,37 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 const TESTIMONIALS = [
   {
     name: "Sarah Mitchell",
-    context: "Seller in Oakridge",
+    context: "Sold in Oakridge",
     quote:
-      "The forecast was incredibly accurate, but it was my agent's negotiation skills that got us $15K over asking. We sold in 9 days with multiple offers - couldn't be happier.",
+      "Our agent was incredible - patient, knowledgeable, and always available. We got multiple offers and sold for $15K over asking in just 9 days. Couldn't have asked for a better experience!",
     rating: 5,
   },
   {
     name: "James Thornton",
     context: "First-Time Buyer",
     quote:
-      "Their market insights were spot-on. Combined with personal attention from our agent, we found our dream home in just three weeks. They made the whole process feel easy.",
+      "As first-time buyers, we had so many questions. Our agent walked us through everything and never made us feel rushed. Found our dream home in three weeks - we still can't believe it!",
     rating: 5,
   },
   {
     name: "Maria Gonzalez",
-    context: "Investor",
+    context: "Repeat Client",
     quote:
-      "I loved having access to real data, but what really mattered was having an expert explain what it meant for my situation. Their forecasts have directly improved my portfolio returns.",
+      "This is the third property I've bought with Nexus. They know exactly what I'm looking for and always find me great deals. Their local knowledge is unmatched - I wouldn't use anyone else.",
     rating: 5,
   },
   {
     name: "David Chen",
-    context: "Seller in Maplewood",
+    context: "Sold in Maplewood",
     quote:
-      "The technology was impressive, but our agent's local knowledge made all the difference. The forecast was within 2% of the final sale, and closing was incredibly smooth.",
+      "From staging advice to closing day, everything was smooth and professional. Our agent's knowledge of the neighborhood really helped us price it right. Sold within two weeks!",
     rating: 5,
   },
   {
     name: "Emily Parker",
     context: "Buyer in Riverside",
     quote:
-      "Our agent found an off-market property that matched every one of our criteria before it even listed. The combination of technology and personal service truly sets them apart.",
+      "Our agent found us an off-market home that was absolutely perfect for our family. They really listened to what we wanted and went above and beyond. We're so grateful!",
     rating: 5,
   },
 ]
@@ -76,7 +76,7 @@ export function Testimonials() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
             >
-              Data-Driven Results.
+              What Our Clients Say.
             </motion.h2>
           </div>
 
