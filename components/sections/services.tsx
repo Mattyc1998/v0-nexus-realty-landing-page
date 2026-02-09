@@ -117,20 +117,27 @@ export function Services() {
                 variants={cardVariants}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className="relative group flex flex-col justify-between rounded-lg glass-card p-10 transition-luxury shadow-luxury-hover"
+                className="relative group flex flex-col justify-between rounded-lg p-10 transition-luxury shadow-luxury-hover"
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
-                  borderColor: isHovered ? "hsl(var(--primary))" : "rgba(255, 255, 255, 0.06)",
-                  opacity: hoveredIndex !== null && !isHovered ? 0.7 : 1,
+                  backgroundColor: isHovered
+                    ? "rgba(20, 24, 38, 0.85)"
+                    : "rgba(15, 18, 30, 0.75)",
+                  border: "1px solid",
+                  borderColor: isHovered
+                    ? "hsl(var(--primary) / 0.6)"
+                    : "rgba(255, 255, 255, 0.12)",
                 }}
               >
                 <div>
                   <motion.div
                     variants={iconVariants}
-                    className="mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 transition-all duration-300"
+                    className="mb-5 flex h-14 w-14 items-center justify-center rounded-lg"
                     style={{
                       transform: isHovered ? "rotate(5deg)" : "rotate(0deg)",
-                      backgroundColor: isHovered ? "hsl(var(--primary) / 0.2)" : "hsl(var(--primary) / 0.1)",
+                      backgroundColor: isHovered
+                        ? "hsl(var(--primary) / 0.25)"
+                        : "hsl(var(--primary) / 0.15)",
                     }}
                   >
                     <Icon className="h-7 w-7 text-primary" />
@@ -140,7 +147,7 @@ export function Services() {
                     {service.title}
                   </h3>
 
-                  <p className="text-sm leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-foreground/80">
                     {service.description}
                   </p>
                 </div>
