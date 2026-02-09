@@ -85,15 +85,12 @@ export function Services() {
       className="relative py-20 overflow-hidden" 
       ref={ref}
     >
-      {/* Deep black background with much lighter top/bottom gradients */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/60 via-black to-gray-900/60 -z-10" />
+      {/* Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background -z-10" />
       
-      {/* MUCH stronger glows for light without a photo */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[140px] -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-amber-400/12 rounded-full blur-[140px] -z-10" />
-      
-      {/* Central glow for ambient light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-white/3 rounded-full blur-[150px] -z-10" />
+      {/* Subtle glow effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-[120px] -z-10" />
 
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
@@ -110,7 +107,7 @@ export function Services() {
           initial={{ opacity: 0, x: -30 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="mb-12 font-serif text-3xl font-bold text-white md:text-4xl text-balance"
+          className="mb-12 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
         >
           How We Can Help.
         </motion.h2>
@@ -135,14 +132,14 @@ export function Services() {
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
                   backgroundColor: isHovered
-                    ? "rgba(30, 30, 30, 0.8)"
-                    : "rgba(20, 20, 20, 0.6)",
+                    ? "rgba(0, 0, 0, 0.4)"
+                    : "rgba(0, 0, 0, 0.2)",
                   borderColor: isHovered
-                    ? "rgba(255, 255, 255, 0.3)"
-                    : "rgba(255, 255, 255, 0.2)",
+                    ? "rgba(255, 255, 255, 0.2)"
+                    : "rgba(255, 255, 255, 0.1)",
                   boxShadow: isHovered
-                    ? "0 20px 40px rgba(0, 0, 0, 0.4)"
-                    : "0 10px 30px rgba(0, 0, 0, 0.3)",
+                    ? "0 20px 40px rgba(0, 0, 0, 0.3)"
+                    : "0 10px 30px rgba(0, 0, 0, 0.2)",
                 }}
               >
                 <div>
@@ -152,21 +149,21 @@ export function Services() {
                     style={{
                       transform: isHovered ? "rotate(5deg) scale(1.1)" : "rotate(0deg) scale(1)",
                       backgroundColor: isHovered
-                        ? "hsl(var(--primary) / 0.3)"
-                        : "hsl(var(--primary) / 0.2)",
+                        ? "hsl(var(--primary) / 0.2)"
+                        : "hsl(var(--primary) / 0.1)",
                       borderColor: isHovered
-                        ? "hsl(var(--primary) / 0.6)"
-                        : "hsl(var(--primary) / 0.3)",
+                        ? "hsl(var(--primary) / 0.4)"
+                        : "hsl(var(--primary) / 0.2)",
                     }}
                   >
                     <Icon className="h-7 w-7 text-primary" />
                   </motion.div>
 
-                  <h3 className="mb-3 font-serif text-xl font-bold text-white">
+                  <h3 className="mb-3 font-serif text-xl font-bold text-foreground">
                     {service.title}
                   </h3>
 
-                  <p className="text-sm leading-relaxed text-gray-300">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
                 </div>
@@ -196,4 +193,3 @@ export function Services() {
       </div>
     </section>
   )
-}
