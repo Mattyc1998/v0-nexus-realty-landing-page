@@ -68,18 +68,38 @@ export function Hero() {
           <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-gold-400/20 blur-[120px]" />
         </motion.div>
 
-        {/* Brand */}
+        {/* Brand - IMPROVED READABILITY */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-4 text-sm font-medium uppercase tracking-widest text-primary"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-6"
         >
-          Nexus Realty Group
+          <div className="relative inline-flex flex-col items-center px-6 py-3 rounded-lg bg-black/40 backdrop-blur-md border border-white/20 shadow-2xl">
+            {/* Glow behind */}
+            <div className="absolute inset-0 bg-primary/10 blur-xl rounded-lg" />
+            
+            <span 
+              className="relative text-lg md:text-xl font-bold uppercase tracking-[0.3em] text-white"
+              style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
+            >
+              Nexus Realty Group
+            </span>
+            
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="h-0.5 mt-2 bg-gradient-to-r from-transparent via-white to-transparent"
+            />
+          </div>
         </motion.div>
 
-        {/* Heading */}
-        <h1 className="mx-auto max-w-4xl font-serif text-5xl font-bold text-white md:text-7xl lg:text-8xl">
+        {/* Heading - ENHANCED DROP SHADOW */}
+        <h1 
+          className="mx-auto max-w-4xl font-serif text-5xl font-bold text-white md:text-7xl lg:text-8xl"
+          style={{ textShadow: '0 4px 30px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.9)' }}
+        >
           {words.map((word, i) => (
             <motion.span
               key={i}
@@ -93,17 +113,18 @@ export function Hero() {
           ))}
         </h1>
 
-        {/* Subtitle */}
+        {/* Subtitle - IMPROVED CONTRAST */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1 }}
-          className="mx-auto mt-6 max-w-xl text-lg text-white/90 md:text-xl"
+          className="mx-auto mt-6 max-w-xl text-lg text-white md:text-xl font-medium"
+          style={{ textShadow: '0 2px 15px rgba(0,0,0,0.7)' }}
         >
           Expert local agents who know the neighborhoods, understand your needs, and help you get the best deal.
         </motion.p>
 
-        {/* CTA ONLY */}
+        {/* CTA - ENHANCED */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -113,7 +134,7 @@ export function Hero() {
           <Magnetic strength={0.3}>
             <Button
               size="lg"
-              className="h-12 px-10 text-base font-semibold shadow-2xl hover:scale-105 active:scale-95"
+              className="h-12 px-10 text-base font-semibold shadow-2xl hover:scale-105 active:scale-95 ring-2 ring-primary/20"
               onClick={() => setDialogOpen(true)}
             >
               Get Your Free Home Valuation
@@ -121,20 +142,23 @@ export function Hero() {
           </Magnetic>
         </motion.div>
 
-        {/* Stats */}
+        {/* Stats - IMPROVED CONTRAST */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.2 }}
           className="mt-16 w-full max-w-4xl"
         >
-          <div className="grid grid-cols-2 gap-8 rounded-2xl bg-black/20 p-8 backdrop-blur-md md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 rounded-2xl bg-black/30 backdrop-blur-md p-8 border border-white/10 shadow-2xl md:grid-cols-4">
             {STATS.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center">
-                <span className="text-3xl font-bold text-white md:text-4xl">
+                <span 
+                  className="text-3xl font-bold text-white md:text-4xl"
+                  style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}
+                >
                   <AnimatedCounter {...stat} duration={2200} />
                 </span>
-                <span className="text-xs uppercase text-white/70">
+                <span className="text-xs uppercase tracking-wider text-white/80 font-medium">
                   {stat.label}
                 </span>
               </div>
