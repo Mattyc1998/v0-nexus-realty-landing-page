@@ -85,12 +85,12 @@ export function Services() {
       className="relative py-20 overflow-hidden" 
       ref={ref}
     >
-      {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background -z-10" />
+      {/* Brighter background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-800/30 to-slate-900/50 -z-10" />
       
-      {/* Subtle glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-[120px] -z-10" />
+      {/* Stronger glow effects for more light */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-400/8 rounded-full blur-[120px] -z-10" />
 
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
@@ -132,11 +132,11 @@ export function Services() {
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
                   backgroundColor: isHovered
-                    ? "rgba(0, 0, 0, 0.4)"
-                    : "rgba(0, 0, 0, 0.2)",
+                    ? "rgba(30, 41, 59, 0.6)" // Brighter hover - slate-800 with opacity
+                    : "rgba(15, 23, 42, 0.4)", // Brighter default - slate-900 with opacity
                   borderColor: isHovered
-                    ? "rgba(255, 255, 255, 0.2)"
-                    : "rgba(255, 255, 255, 0.1)",
+                    ? "rgba(255, 255, 255, 0.25)" // Brighter border
+                    : "rgba(255, 255, 255, 0.15)", // Brighter border
                   boxShadow: isHovered
                     ? "0 20px 40px rgba(0, 0, 0, 0.3)"
                     : "0 10px 30px rgba(0, 0, 0, 0.2)",
@@ -149,21 +149,21 @@ export function Services() {
                     style={{
                       transform: isHovered ? "rotate(5deg) scale(1.1)" : "rotate(0deg) scale(1)",
                       backgroundColor: isHovered
-                        ? "hsl(var(--primary) / 0.2)"
-                        : "hsl(var(--primary) / 0.1)",
+                        ? "hsl(var(--primary) / 0.25)" // Brighter icon bg
+                        : "hsl(var(--primary) / 0.15)",
                       borderColor: isHovered
-                        ? "hsl(var(--primary) / 0.4)"
-                        : "hsl(var(--primary) / 0.2)",
+                        ? "hsl(var(--primary) / 0.5)" // Brighter border
+                        : "hsl(var(--primary) / 0.25)",
                     }}
                   >
                     <Icon className="h-7 w-7 text-primary" />
                   </motion.div>
 
-                  <h3 className="mb-3 font-serif text-xl font-bold text-foreground">
+                  <h3 className="mb-3 font-serif text-xl font-bold text-white"> {/* Changed to pure white */}
                     {service.title}
                   </h3>
 
-                  <p className="text-sm leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-slate-300"> {/* Brighter text */}
                     {service.description}
                   </p>
                 </div>
