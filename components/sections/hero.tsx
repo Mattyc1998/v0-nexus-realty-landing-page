@@ -11,8 +11,8 @@ import { Magnetic } from "@/components/magnetic"
 
 const STATS = [
   { end: 450, suffix: "+", label: "Homes Sold" },
-  { end: 94, suffix: "%", label: "Forecast Accuracy" },
-  { end: 2.1, suffix: "B+", prefix: "$", label: "Sales Volume", decimals: 1 },
+  { end: 98, suffix: "%", label: "Client Satisfaction" },
+  { end: 2.1, suffix: "B+", prefix: "$", label: "In Sales", decimals: 1 },
   { end: 12, suffix: "+", label: "Years Experience" },
 ]
 
@@ -35,7 +35,7 @@ export function Hero() {
     })
   }
 
-  const words = ["The", "Future", "of", "Local", "Living."]
+  const words = ["Your", "Home", "Journey", "Starts", "Here."]
 
   return (
     <section 
@@ -118,7 +118,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 1.1, ease: [0.4, 0.0, 0.2, 1] }}
           className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
         >
-          Where advanced market analytics meets personal service - helping you buy or sell with complete confidence.
+          Expert local agents who know the neighborhoods, understand your needs, and help you get the best deal.
         </motion.p>
 
         <motion.div
@@ -130,9 +130,9 @@ export function Hero() {
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder="Enter your property address..."
+              placeholder="Search by address or neighborhood..."
               className="h-12 pl-10 text-base"
-              aria-label="Property address"
+              aria-label="Property search"
             />
           </div>
           <motion.div
@@ -150,7 +150,7 @@ export function Hero() {
                 className="h-12 shrink-0 text-base font-semibold relative overflow-hidden group luxury-pulse transition-luxury hover:scale-105 active:scale-95"
                 onClick={() => setDialogOpen(true)}
               >
-                Get 2026 Value Forecast
+                Get Your Free Home Valuation
               </Button>
             </Magnetic>
           </motion.div>
@@ -162,7 +162,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 2 }}
           className="mt-4 text-xs text-muted-foreground"
         >
-          No obligation. Free for homeowners in our service area.
+          No obligation. Free instant estimate for your home.
         </motion.p>
 
         <motion.div
