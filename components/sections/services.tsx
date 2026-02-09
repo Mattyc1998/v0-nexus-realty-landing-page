@@ -80,7 +80,18 @@ export function Services() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section id="services" className="py-20" ref={ref}>
+    <section 
+      id="services" 
+      className="relative py-20 overflow-hidden" 
+      ref={ref}
+    >
+      {/* Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background -z-10" />
+      
+      {/* Subtle glow effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-[120px] -z-10" />
+
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -117,27 +128,32 @@ export function Services() {
                 variants={cardVariants}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className="relative group flex flex-col justify-between rounded-lg p-10 transition-luxury shadow-luxury-hover"
+                className="relative group flex flex-col justify-between rounded-lg p-10 backdrop-blur-sm border shadow-2xl transition-luxury"
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
                   backgroundColor: isHovered
-                    ? "rgba(20, 24, 38, 0.85)"
-                    : "rgba(15, 18, 30, 0.75)",
-                  border: "1px solid",
+                    ? "rgba(0, 0, 0, 0.4)"
+                    : "rgba(0, 0, 0, 0.2)",
                   borderColor: isHovered
-                    ? "hsl(var(--primary) / 0.6)"
-                    : "rgba(255, 255, 255, 0.12)",
+                    ? "rgba(255, 255, 255, 0.2)"
+                    : "rgba(255, 255, 255, 0.1)",
+                  boxShadow: isHovered
+                    ? "0 20px 40px rgba(0, 0, 0, 0.3)"
+                    : "0 10px 30px rgba(0, 0, 0, 0.2)",
                 }}
               >
                 <div>
                   <motion.div
                     variants={iconVariants}
-                    className="mb-5 flex h-14 w-14 items-center justify-center rounded-lg"
+                    className="mb-5 flex h-14 w-14 items-center justify-center rounded-lg border transition-all duration-300"
                     style={{
-                      transform: isHovered ? "rotate(5deg)" : "rotate(0deg)",
+                      transform: isHovered ? "rotate(5deg) scale(1.1)" : "rotate(0deg) scale(1)",
                       backgroundColor: isHovered
-                        ? "hsl(var(--primary) / 0.25)"
-                        : "hsl(var(--primary) / 0.15)",
+                        ? "hsl(var(--primary) / 0.2)"
+                        : "hsl(var(--primary) / 0.1)",
+                      borderColor: isHovered
+                        ? "hsl(var(--primary) / 0.4)"
+                        : "hsl(var(--primary) / 0.2)",
                     }}
                   >
                     <Icon className="h-7 w-7 text-primary" />
@@ -147,14 +163,14 @@ export function Services() {
                     {service.title}
                   </h3>
 
-                  <p className="text-sm leading-relaxed text-foreground/80">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
                 </div>
 
                 <Button
                   asChild
-                  className="mt-8 w-fit relative overflow-hidden group/btn"
+                  className="mt-8 w-fit relative overflow-hidden group/btn shadow-lg"
                   style={{
                     transform: isHovered ? "scale(1.05)" : "scale(1)",
                     transition: "transform 200ms ease-out",
