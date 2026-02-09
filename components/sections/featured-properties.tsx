@@ -30,7 +30,7 @@ const cardVariants = {
 
 export function FeaturedProperties() {
   const { ref, isVisible } = useScrollAnimation(0.3)
-  const featuredProperties = getFeaturedProperties(9)
+  const featuredProperties = getFeaturedProperties(6)
 
   if (featuredProperties.length === 0) {
     return null
