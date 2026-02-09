@@ -10,7 +10,7 @@ const ADVANTAGES = [
     icon: Home,
     title: "Find Your Perfect Home",
     description:
-      "We know the neighborhoods inside and out—from the best schools to hidden gems. Whether you're a first-time buyer or looking to upgrade, we'll help you find a home that truly fits your life.",
+      "We know the neighborhoods inside and out, from the best schools to hidden gems. Whether you're a first-time buyer or looking to upgrade, we'll help you find a home that truly fits your life.",
   },
   {
     icon: Heart,
@@ -22,7 +22,7 @@ const ADVANTAGES = [
     icon: Handshake,
     title: "Smooth from Start to Finish",
     description:
-      "From your first viewing to closing day, we handle the details so you don't have to. Our proven process means less stress and faster results—we'll be with you every step of the way.",
+      "From your first viewing to closing day, we handle the details so you don't have to. Our proven process means less stress and faster results, we'll be with you every step of the way.",
   },
 ]
 
