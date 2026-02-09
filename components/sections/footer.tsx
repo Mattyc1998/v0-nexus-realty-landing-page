@@ -25,7 +25,7 @@ export function Footer() {
     e.preventDefault()
     if (!email.trim()) return
     setEmail("")
-    toast.success("Subscribed! You will receive our latest market insights.")
+    toast.success("Subscribed! You'll receive our latest property updates and local market news.")
   }
 
   return (
@@ -45,7 +45,7 @@ export function Footer() {
               Nexus Realty Group
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              The future of local living. Combining advanced market intelligence with personal expertise to help you make confident real estate decisions.
+              Your trusted local estate agents in Middlesbrough and the North East. Expert guidance for buying, selling, and finding your perfect home.
             </p>
           </motion.div>
 
@@ -85,15 +85,15 @@ export function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-foreground">
-              Stay Informed
+              Stay Updated
             </h4>
             <p className="mb-4 text-sm text-muted-foreground">
-              Get weekly market insights and forecasts delivered to your inbox.
+              Get the latest property listings and local market updates delivered to your inbox.
             </p>
             <form onSubmit={handleSubscribe} className="flex gap-2">
               <Input
                 type="email"
-                placeholder="your@email.com"
+                placeholder="you@example.co.uk"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="h-10 focus:ring-2 focus:ring-primary transition-all"
@@ -119,7 +119,7 @@ export function Footer() {
             &copy; 2026 Nexus Realty Group. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground">
-            Registered Estate Agents
+            Registered Estate Agents · Middlesbrough, England
           </p>
         </motion.div>
       </div>
