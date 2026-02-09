@@ -2,28 +2,27 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { TrendingUp, MapPin, FileCheck } from "lucide-react"
+import { Home, Heart, Handshake } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { TrendChart } from "@/components/trend-chart"
 
 const ADVANTAGES = [
   {
-    icon: TrendingUp,
-    title: "Predictive Analytics",
+    icon: Home,
+    title: "Find Your Perfect Home",
     description:
-      "Our platform analyzes market velocity, historical trends, and economic indicators to forecast values with 94% accuracy. Our experienced agents then interpret these insights for your specific situation, giving you data-backed confidence in every decision.",
+      "We know the neighborhoods inside and out—from the best schools to hidden gems. Whether you're a first-time buyer or looking to upgrade, we'll help you find a home that truly fits your life.",
   },
   {
-    icon: MapPin,
-    title: "Hyper-Local Expertise",
+    icon: Heart,
+    title: "Expert Guidance You Can Trust",
     description:
-      "Combining block-by-block data analytics with decades of neighborhood knowledge. We track micro-market shifts others miss, giving you true competitive advantage whether buying, selling, or investing.",
+      "With years of local experience, we help you navigate pricing, negotiations, and market timing with confidence. You'll know exactly what you're getting and what it's really worth.",
   },
   {
-    icon: FileCheck,
-    title: "Streamlined Digital Process",
+    icon: Handshake,
+    title: "Smooth from Start to Finish",
     description:
-      "Our modern transaction platform reduces closing times by 40% compared to traditional methods. From initial offer to keys in hand, technology handles the paperwork while your dedicated agent handles the relationships.",
+      "From your first viewing to closing day, we handle the details so you don't have to. Our proven process means less stress and faster results—we'll be with you every step of the way.",
   },
 ]
 
@@ -81,7 +80,7 @@ export function Advantages() {
           transition={{ duration: 0.5 }}
         >
           <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
-            Why Nexus
+            Why Choose Nexus
           </p>
         </motion.div>
 
@@ -91,12 +90,8 @@ export function Advantages() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="mb-12 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
         >
-          The Nexus Advantage.
+          Your Home Journey, Simplified.
         </motion.h2>
-
-        <div className="mb-16">
-          <TrendChart />
-        </div>
 
         <motion.div
           variants={containerVariants}
