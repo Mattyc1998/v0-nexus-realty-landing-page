@@ -37,7 +37,11 @@ export function FeaturedProperties() {
   }
 
   return (
-    <section id="featured-properties" className="py-20 bg-muted/30" ref={ref}>
+    <section
+      id="featured-properties"
+      ref={ref}
+      className="py-20 bg-gradient-to-b from-muted/40 to-muted/20"
+    >
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 1, x: 0 }}
@@ -62,7 +66,7 @@ export function FeaturedProperties() {
           initial={{ opacity: 1, x: 0 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-muted-foreground max-w-2xl"
+          className="mb-12 max-w-2xl text-foreground/75"
         >
           Explore our current listings and find your next home
         </motion.p>
@@ -84,12 +88,12 @@ export function FeaturedProperties() {
           initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mt-12 text-center"
+          className="mt-14 text-center"
         >
           <Button size="lg" asChild>
             <Link href="/properties">View All Properties</Link>
           </Button>
-          <p className="mt-3 text-sm text-muted-foreground">
+          <p className="mt-3 text-sm text-foreground/60">
             Browse our complete inventory of 25+ homes
           </p>
         </motion.div>
