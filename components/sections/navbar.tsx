@@ -68,8 +68,8 @@ export function Navbar() {
             Nexus Realty
           </Link>
 
-          {/* Centered desktop navigation */}
-          <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+          {/* Optically centered desktop navigation */}
+          <ul className="absolute left-1/2 hidden -translate-x-[55%] items-center gap-8 md:flex">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
                 <Link
@@ -129,3 +129,4 @@ export function Navbar() {
     </>
   )
 }
+
