@@ -39,6 +39,7 @@ export function Navbar() {
 
   return (
     <>
+      {/* Scroll progress bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-0.5 bg-primary z-50"
         style={{ width: `${progress}%` }}
@@ -48,15 +49,14 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled
-            ? "glass-effect shadow-luxury-md"
-            : "bg-transparent"
+          scrolled ? "glass-effect shadow-luxury-md" : "bg-transparent"
         )}
       >
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4"
           aria-label="Main navigation"
         >
+          {/* Logo */}
           <Link
             href="/"
             className="font-serif text-xl font-bold text-foreground transition-all hover:text-primary"
@@ -68,26 +68,22 @@ export function Navbar() {
             Nexus Realty
           </Link>
 
+          {/* Desktop navigation */}
           <ul className="hidden items-center gap-8 md:flex">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-foreground transition-colors hover:text-primary relative group"
+                  className="relative text-sm font-medium text-foreground transition-colors hover:text-primary group"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary transition-all duration-250 group-hover:w-full group-hover:left-0" />
+                  <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-primary transition-all duration-250 group-hover:left-0 group-hover:w-full" />
                 </Link>
               </li>
             ))}
           </ul>
 
-          <div className="hidden md:block">
-            <Button asChild size="sm" className="luxury-pulse transition-luxury hover:scale-105">
-              <Link href="/#home">Get Forecast</Link>
-            </Button>
-          </div>
-
+          {/* Mobile menu toggle */}
           <Button
             variant="ghost"
             size="icon"
@@ -100,6 +96,7 @@ export function Navbar() {
           </Button>
         </nav>
 
+        {/* Mobile navigation */}
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -125,18 +122,6 @@ export function Navbar() {
                   </Link>
                 </motion.li>
               ))}
-              <motion.li
-                className="mt-2"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: NAV_LINKS.length * 0.05 }}
-              >
-                <Button asChild className="w-full" size="sm">
-                  <Link href="/#home" onClick={() => setMobileOpen(false)}>
-                    Get Forecast
-                  </Link>
-                </Button>
-              </motion.li>
             </ul>
           </motion.div>
         )}
