@@ -27,6 +27,9 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
   const [formData, setFormData] = useState({
     goal: "" as UserGoal,
     address: "",
+    budget: "",
+    preferredAreas: "",
+    researchInterest: "",
     propertyType: "",
     timeframe: "",
     name: "",
@@ -102,7 +105,7 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
     }
   };
 
-  const getTotalSteps = () => (formData.goal === "selling" ? 5 : 4);
+  const getTotalSteps = () => 4; // Always 4 steps now
 
   const renderStep = () => {
     if (isSubmitted) {
@@ -115,13 +118,13 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
           <div className="mb-6 rounded-full bg-green-500/10 p-3">
             <CheckCircle2 className="h-12 w-12 text-green-500" />
           </div>
-          <h3 className="text-2xl font-bold text-foreground">Forecast Request Received</h3>
+          <h3 className="text-2xl font-bold text-foreground">Thank You!</h3>
           <p className="mt-3 text-muted-foreground">
-            Our AI engine is processing your property profile. <br />
-            An advisor will reach out shortly with your 2026 value forecast.
+            We've received your request. <br />
+            One of our local agents will contact you within 24 hours.
           </p>
           <Button onClick={handleClose} className="mt-8 transition-luxury hover:scale-105">
-            Return to Site
+            Close
           </Button>
         </motion.div>
       );
@@ -138,66 +141,147 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
             className="flex flex-col gap-6"
           >
             <div className="text-center">
-              <h3 className="text-xl font-semibold">How can we help you today?</h3>
-              <p className="text-sm text-muted-foreground mt-1">Select your primary goal to begin.</p>
+              <h3 className="text-xl font-semibold">How can we help you?</h3>
+              <p className="text-sm text-muted-foreground mt-1">Tell us what you're looking for.</p>
             </div>
             <div className="grid gap-3">
               <button
                 onClick={() => handleGoalSelect("selling")}
                 className="flex flex-col items-start gap-1 rounded-lg border-2 border-muted bg-popover p-4 text-left transition-all hover:border-primary hover:bg-muted/50 focus:border-primary focus:outline-none"
               >
-                <span className="font-bold">I am thinking of selling</span>
-                <span className="text-sm text-muted-foreground">Get a predictive 2026 value forecast for your property.</span>
+                <span className="font-bold">I'm thinking of selling</span>
+                <span className="text-sm text-muted-foreground">Find out what your home is worth today.</span>
               </button>
               <button
                 onClick={() => handleGoalSelect("buying")}
                 className="flex flex-col items-start gap-1 rounded-lg border-2 border-muted bg-popover p-4 text-left transition-all hover:border-primary hover:bg-muted/50 focus:border-primary focus:outline-none"
               >
-                <span className="font-bold">I am looking to buy</span>
-                <span className="text-sm text-muted-foreground">Find properties with high growth potential.</span>
+                <span className="font-bold">I'm looking to buy</span>
+                <span className="text-sm text-muted-foreground">Get help finding your perfect home.</span>
               </button>
               <button
                 onClick={() => handleGoalSelect("research")}
                 className="flex flex-col items-start gap-1 rounded-lg border-2 border-muted bg-popover p-4 text-left transition-all hover:border-primary hover:bg-muted/50 focus:border-primary focus:outline-none"
               >
-                <span className="font-bold">Just researching</span>
-                <span className="text-sm text-muted-foreground">Explore market trends and AI-driven insights.</span>
+                <span className="font-bold">Just curious</span>
+                <span className="text-sm text-muted-foreground">Learn about the local property market.</span>
               </button>
             </div>
           </motion.div>
         );
+      
       case 2:
-        return (
-          <motion.div
-            key="step2"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="flex flex-col gap-6"
-          >
-            <div className="text-center">
-              <h3 className="text-xl font-semibold">Property Address</h3>
-              <p className="text-sm text-muted-foreground mt-1">Which property should we analyze?</p>
-            </div>
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="address">Address</Label>
-                <motion.div whileFocus={{ scale: 1.01 }}>
-                  <Input
-                    id="address"
-                    placeholder="123 Luxury Way, Neighborhood..."
-                    value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    className="transition-all"
-                  />
-                </motion.div>
+        // DIFFERENT QUESTIONS BASED ON GOAL
+        if (formData.goal === "selling") {
+          return (
+            <motion.div
+              key="step2-selling"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="flex flex-col gap-6"
+            >
+              <div className="text-center">
+                <h3 className="text-xl font-semibold">Your Property Address</h3>
+                <p className="text-sm text-muted-foreground mt-1">Which property would you like valued?</p>
               </div>
-              <Button onClick={handleNext} disabled={!formData.address} className="w-full">
-                Next Step
-              </Button>
-            </div>
-          </motion.div>
-        );
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="address">Address</Label>
+                  <motion.div whileFocus={{ scale: 1.01 }}>
+                    <Input
+                      id="address"
+                      placeholder="e.g. 123 High Street, Middlesbrough"
+                      value={formData.address}
+                      onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                      className="transition-all"
+                    />
+                  </motion.div>
+                </div>
+                <Button onClick={handleNext} disabled={!formData.address} className="w-full">
+                  Next
+                </Button>
+              </div>
+            </motion.div>
+          );
+        } else if (formData.goal === "buying") {
+          return (
+            <motion.div
+              key="step2-buying"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="flex flex-col gap-6"
+            >
+              <div className="text-center">
+                <h3 className="text-xl font-semibold">What Are You Looking For?</h3>
+                <p className="text-sm text-muted-foreground mt-1">Help us understand your requirements.</p>
+              </div>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="budget">Budget Range</Label>
+                  <Input
+                    id="budget"
+                    placeholder="e.g. £200,000 - £300,000"
+                    value={formData.budget}
+                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="preferredAreas">Preferred Areas</Label>
+                  <Input
+                    id="preferredAreas"
+                    placeholder="e.g. Middlesbrough, Yarm, Stockton"
+                    value={formData.preferredAreas}
+                    onChange={(e) => setFormData({ ...formData, preferredAreas: e.target.value })}
+                  />
+                </div>
+                <Button 
+                  onClick={handleNext} 
+                  disabled={!formData.budget || !formData.preferredAreas} 
+                  className="w-full"
+                >
+                  Next
+                </Button>
+              </div>
+            </motion.div>
+          );
+        } else {
+          // Research
+          return (
+            <motion.div
+              key="step2-research"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="flex flex-col gap-6"
+            >
+              <div className="text-center">
+                <h3 className="text-xl font-semibold">What Would You Like to Know?</h3>
+                <p className="text-sm text-muted-foreground mt-1">Tell us your area of interest.</p>
+              </div>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="researchInterest">Area or Topic</Label>
+                  <Input
+                    id="researchInterest"
+                    placeholder="e.g. Property values in Yarm, Market trends"
+                    value={formData.researchInterest}
+                    onChange={(e) => setFormData({ ...formData, researchInterest: e.target.value })}
+                  />
+                </div>
+                <Button 
+                  onClick={handleNext} 
+                  disabled={!formData.researchInterest} 
+                  className="w-full"
+                >
+                  Next
+                </Button>
+              </div>
+            </motion.div>
+          );
+        }
+      
       case 3:
         return (
           <motion.div
@@ -208,30 +292,33 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
             className="flex flex-col gap-6"
           >
             <div className="text-center">
-              <h3 className="text-xl font-semibold">Tell us more</h3>
-              <p className="text-sm text-muted-foreground mt-1">A few details help improve accuracy.</p>
+              <h3 className="text-xl font-semibold">A bit more detail</h3>
+              <p className="text-sm text-muted-foreground mt-1">This helps us give you accurate information.</p>
             </div>
             <div className="space-y-4">
+              {formData.goal !== "research" && (
+                <div className="space-y-2">
+                  <Label>Property Type</Label>
+                  <Select
+                    onValueChange={(val) => setFormData({ ...formData, propertyType: val })}
+                    defaultValue={formData.propertyType}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select type..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="detached">Detached House</SelectItem>
+                      <SelectItem value="semi-detached">Semi-Detached</SelectItem>
+                      <SelectItem value="terraced">Terraced House</SelectItem>
+                      <SelectItem value="flat">Flat / Apartment</SelectItem>
+                      <SelectItem value="bungalow">Bungalow</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
               <div className="space-y-2">
-                <Label>Property Type</Label>
-                <Select
-                  onValueChange={(val) => setFormData({ ...formData, propertyType: val })}
-                  defaultValue={formData.propertyType}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select type..." />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="detached">Detached House</SelectItem>
-                    <SelectItem value="semi-detached">Semi-Detached</SelectItem>
-                    <SelectItem value="terraced">Terraced House</SelectItem>
-                    <SelectItem value="apartment">Apartment / Flat</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label>Planning Timeframe</Label>
+                <Label>Your Timeline</Label>
                 <RadioGroup
                   onValueChange={(val) => setFormData({ ...formData, timeframe: val })}
                   defaultValue={formData.timeframe}
@@ -239,28 +326,29 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="asap" id="asap" />
-                    <Label htmlFor="asap">ASAP</Label>
+                    <Label htmlFor="asap">Ready now</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="3months" id="3months" />
-                    <Label htmlFor="3months">1-3 Months</Label>
+                    <Label htmlFor="3months">1-3 months</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="6months" id="6months" />
-                    <Label htmlFor="6months">3-6 Months</Label>
+                    <Label htmlFor="6months">3-6 months</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="future" id="future" />
-                    <Label htmlFor="future">Just curious</Label>
+                    <Label htmlFor="future">Just browsing</Label>
                   </div>
                 </RadioGroup>
               </div>
               <Button onClick={handleNext} className="w-full">
-                Next Step
+                Next
               </Button>
             </div>
           </motion.div>
         );
+      
       case 4:
         return (
           <motion.div
@@ -271,15 +359,15 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
             className="flex flex-col gap-6"
           >
             <div className="text-center">
-              <h3 className="text-xl font-semibold">Where should we send it?</h3>
-              <p className="text-sm text-muted-foreground mt-1">Your forecast will be sent via email.</p>
+              <h3 className="text-xl font-semibold">Your Contact Details</h3>
+              <p className="text-sm text-muted-foreground mt-1">We'll get back to you within 24 hours.</p>
             </div>
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
                 <Input
                   id="name"
-                  placeholder="John Doe"
+                  placeholder="John Smith"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
@@ -289,17 +377,17 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
                 <Input
                   id="email"
                   type="email"
-                  placeholder="john@example.com"
+                  placeholder="john@example.co.uk"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number (Optional)</Label>
+                <Label htmlFor="phone">Phone Number</Label>
                 <Input
                   id="phone"
                   type="tel"
-                  placeholder="07xxx xxxxxx"
+                  placeholder="01642 123 456"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
@@ -311,11 +399,11 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
                   onCheckedChange={(val) => setFormData({ ...formData, consent: val as boolean })}
                 />
                 <Label htmlFor="consent" className="text-xs leading-tight text-muted-foreground">
-                  I agree to receive market updates and forecasts. I can opt out at any time.
+                  I'm happy to receive property updates and market news. I can opt out anytime.
                 </Label>
               </div>
               <Button onClick={handleSubmit} disabled={!formData.name || !formData.email || !formData.consent} className="w-full">
-                Complete Request
+                Submit Request
               </Button>
             </div>
           </motion.div>
@@ -335,7 +423,7 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
             <>
               <DialogHeader>
                 <DialogTitle className="text-2xl font-bold text-center">
-                  Get Your Free 2026 Market Forecast
+                  Get Your Free Home Valuation
                 </DialogTitle>
               </DialogHeader>
               <div className="mb-6">
@@ -390,7 +478,7 @@ export function LeadCaptureDialog({ open, onOpenChange }: LeadCaptureDialogProps
         {!isSubmitted && (
           <DrawerHeader>
             <DrawerTitle className="text-xl font-bold text-center">
-              Market Forecast 2026
+              Free Home Valuation
             </DrawerTitle>
             <div className="mt-4">
               <div className="flex items-center justify-between mb-1">
