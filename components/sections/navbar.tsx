@@ -41,7 +41,7 @@ export function Navbar() {
     <>
       {/* Scroll progress bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-0.5 bg-primary z-50"
+        className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-primary"
         style={{ width: `${progress}%` }}
         initial={{ width: "0%" }}
       />
@@ -53,7 +53,7 @@ export function Navbar() {
         )}
       >
         <nav
-          className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4"
+          className="relative mx-auto flex max-w-7xl items-center px-6 py-4"
           aria-label="Main navigation"
         >
           {/* Logo */}
@@ -68,16 +68,16 @@ export function Navbar() {
             Nexus Realty
           </Link>
 
-          {/* Desktop navigation */}
-          <ul className="hidden items-center gap-8 md:flex">
+          {/* Centered desktop navigation */}
+          <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="relative text-sm font-medium text-foreground transition-colors hover:text-primary group"
+                  className="group relative text-sm font-medium text-foreground transition-colors hover:text-primary"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-primary transition-all duration-250 group-hover:left-0 group-hover:w-full" />
+                  <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:left-0 group-hover:w-full" />
                 </Link>
               </li>
             ))}
@@ -87,7 +87,7 @@ export function Navbar() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="ml-auto md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -103,7 +103,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="border-t border-border glass-effect md:hidden"
+            className="glass-effect border-t border-border md:hidden"
           >
             <ul className="flex flex-col gap-1 px-6 py-4">
               {NAV_LINKS.map((link, i) => (
