@@ -56,7 +56,22 @@ export function Testimonials() {
   }
 
   return (
-    <section id="testimonials" className="py-20" aria-label="Client testimonials" ref={ref}>
+    <section 
+      id="testimonials" 
+      className="relative py-20 overflow-hidden" 
+      aria-label="Client testimonials" 
+      ref={ref}
+    >
+      {/* Background gradient - warmer tone */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background -z-10" />
+      
+      {/* Warm overlay for testimonial section */}
+      <div className="absolute inset-0 bg-gradient-to-r from-gold-400/5 via-transparent to-gold-400/5 pointer-events-none -z-10" />
+      
+      {/* Glow effects - central positioning */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-gold-400/5 rounded-full blur-[120px] -z-10" />
+
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-10 flex items-end justify-between">
           <div>
@@ -73,7 +88,7 @@ export function Testimonials() {
             <motion.h2
               initial={{ opacity: 0, x: -30 }}
               animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
             >
               What Our Clients Say.
@@ -91,6 +106,7 @@ export function Testimonials() {
               size="icon"
               onClick={() => scroll("left")}
               aria-label="Scroll testimonials left"
+              className="backdrop-blur-sm bg-background/50 border-white/10 hover:bg-background/80 hover:border-primary/50 transition-all shadow-lg"
             >
               <ChevronLeft className="h-5 w-5" />
             </Button>
@@ -99,12 +115,17 @@ export function Testimonials() {
               size="icon"
               onClick={() => scroll("right")}
               aria-label="Scroll testimonials right"
+              className="backdrop-blur-sm bg-background/50 border-white/10 hover:bg-background/80 hover:border-primary/50 transition-all shadow-lg"
             >
               <ChevronRight className="h-5 w-5" />
             </Button>
           </motion.div>
         </div>
       </div>
+
+      {/* Gradient fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
       <motion.div
         ref={scrollRef}
@@ -131,6 +152,7 @@ export function Testimonials() {
           size="icon"
           onClick={() => scroll("left")}
           aria-label="Scroll testimonials left"
+          className="backdrop-blur-sm bg-background/50 border-white/10 hover:bg-background/80 hover:border-primary/50 transition-all shadow-lg"
         >
           <ChevronLeft className="h-5 w-5" />
         </Button>
@@ -139,6 +161,7 @@ export function Testimonials() {
           size="icon"
           onClick={() => scroll("right")}
           aria-label="Scroll testimonials right"
+          className="backdrop-blur-sm bg-background/50 border-white/10 hover:bg-background/80 hover:border-primary/50 transition-all shadow-lg"
         >
           <ChevronRight className="h-5 w-5" />
         </Button>
