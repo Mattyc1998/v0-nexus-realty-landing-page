@@ -85,12 +85,12 @@ export function Services() {
       className="relative py-20 overflow-hidden" 
       ref={ref}
     >
-      {/* Brighter background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-800/30 to-slate-900/50 -z-10" />
+      {/* Background matching hero - deep black with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black -z-10" />
       
-      {/* Stronger glow effects for more light */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-400/8 rounded-full blur-[120px] -z-10" />
+      {/* Stronger glows for brightness without changing base color */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-400/10 rounded-full blur-[120px] -z-10" />
 
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
@@ -107,7 +107,7 @@ export function Services() {
           initial={{ opacity: 0, x: -30 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="mb-12 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
+          className="mb-12 font-serif text-3xl font-bold text-white md:text-4xl text-balance"
         >
           How We Can Help.
         </motion.h2>
@@ -132,14 +132,14 @@ export function Services() {
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
                   backgroundColor: isHovered
-                    ? "rgba(30, 41, 59, 0.6)" // Brighter hover - slate-800 with opacity
-                    : "rgba(15, 23, 42, 0.4)", // Brighter default - slate-900 with opacity
+                    ? "rgba(20, 20, 20, 0.6)" // Darker, matches hero better
+                    : "rgba(10, 10, 10, 0.4)", // Darker, matches hero better
                   borderColor: isHovered
-                    ? "rgba(255, 255, 255, 0.25)" // Brighter border
-                    : "rgba(255, 255, 255, 0.15)", // Brighter border
+                    ? "rgba(255, 255, 255, 0.25)"
+                    : "rgba(255, 255, 255, 0.15)",
                   boxShadow: isHovered
-                    ? "0 20px 40px rgba(0, 0, 0, 0.3)"
-                    : "0 10px 30px rgba(0, 0, 0, 0.2)",
+                    ? "0 20px 40px rgba(0, 0, 0, 0.4)"
+                    : "0 10px 30px rgba(0, 0, 0, 0.3)",
                 }}
               >
                 <div>
@@ -149,21 +149,21 @@ export function Services() {
                     style={{
                       transform: isHovered ? "rotate(5deg) scale(1.1)" : "rotate(0deg) scale(1)",
                       backgroundColor: isHovered
-                        ? "hsl(var(--primary) / 0.25)" // Brighter icon bg
+                        ? "hsl(var(--primary) / 0.25)"
                         : "hsl(var(--primary) / 0.15)",
                       borderColor: isHovered
-                        ? "hsl(var(--primary) / 0.5)" // Brighter border
+                        ? "hsl(var(--primary) / 0.5)"
                         : "hsl(var(--primary) / 0.25)",
                     }}
                   >
                     <Icon className="h-7 w-7 text-primary" />
                   </motion.div>
 
-                  <h3 className="mb-3 font-serif text-xl font-bold text-white"> {/* Changed to pure white */}
+                  <h3 className="mb-3 font-serif text-xl font-bold text-white">
                     {service.title}
                   </h3>
 
-                  <p className="text-sm leading-relaxed text-slate-300"> {/* Brighter text */}
+                  <p className="text-sm leading-relaxed text-gray-300">
                     {service.description}
                   </p>
                 </div>
