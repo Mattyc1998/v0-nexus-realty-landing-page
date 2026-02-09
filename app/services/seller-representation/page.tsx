@@ -15,30 +15,30 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { toast } from "sonner"
 
 const STEPS = [
-  { number: "01", title: "Free Home Valuation", description: "Get a data-driven valuation with 94% accuracy from our expert agents" },
-  { number: "02", title: "Strategic Pricing", description: "Your agent analyzes market velocity to price your home perfectly" },
-  { number: "03", title: "Professional Marketing", description: "Targeted digital campaigns reach qualified buyers fast" },
-  { number: "04", title: "Digital Closing", description: "Streamlined process gets you to closing 40% faster" },
+  { number: "01", title: "Free Home Valuation", description: "We'll assess your home's value based on the current market and recent sales in your area" },
+  { number: "02", title: "Pricing Strategy", description: "Together we'll set the right price to attract serious buyers and maximize your return" },
+  { number: "03", title: "Marketing Your Home", description: "Professional photos, targeted advertising, and open houses to get maximum exposure" },
+  { number: "04", title: "Closing the Deal", description: "We handle negotiations and paperwork so you can focus on your next chapter" },
 ]
 
 const BENEFITS = [
-  { icon: Home, title: "Maximum Sale Price", description: "Data-driven pricing optimization increases sale prices by an average of 7%" },
-  { icon: Home, title: "Faster Sales", description: "Our listings sell 60% faster than the market average" },
-  { icon: Home, title: "Professional Staging", description: "Expert staging recommendations increase perceived value" },
-  { icon: Home, title: "Targeted Marketing", description: "Digital campaigns reach 10x more qualified buyers" },
-  { icon: Home, title: "Real-Time Updates", description: "Track showings, feedback, and offers instantly" },
-  { icon: Home, title: "Expert Negotiation", description: "Our agents use data-backed strategies to maximize your return" },
+  { icon: Home, title: "Get Top Dollar", description: "Our expert pricing and negotiation strategies help you get the best possible price" },
+  { icon: Home, title: "Sell Faster", description: "With professional marketing and the right price, most of our listings sell within weeks" },
+  { icon: Home, title: "Expert Staging Advice", description: "We'll show you simple updates that make your home more appealing to buyers" },
+  { icon: Home, title: "Wide Buyer Reach", description: "Your listing gets maximum visibility through MLS, online platforms, and our network" },
+  { icon: Home, title: "Regular Updates", description: "You'll always know what's happening - showings, feedback, and offers" },
+  { icon: Home, title: "Skilled Negotiation", description: "We fight for your interests and make sure you get the best terms possible" },
 ]
 
 const TESTIMONIALS = [
-  { name: "Sarah Mitchell", location: "Oakridge", quote: "The Nexus forecast was spot-on. We listed at exactly the right price and sold in 9 days with multiple offers." },
-  { name: "David Chen", location: "Maplewood", quote: "The digital closing process was seamless. The forecast accuracy on our home value was within 2% of the final sale." },
+  { name: "Sarah Mitchell", location: "Oakridge", quote: "Our agent knew the neighborhood inside and out. We listed at the perfect price and sold in 9 days with multiple offers. Couldn't be happier!" },
+  { name: "David Chen", location: "Maplewood", quote: "From staging tips to closing, everything was smooth and professional. The whole process felt easy, and we got exactly what we wanted." },
 ]
 
 const FAQ_ITEMS = [
-  { question: "How accurate is your home valuation?", answer: "Our data-driven valuation has 94% accuracy based on thousands of comparable sales and real-time market data, refined by our agents' local expertise and knowledge of your specific property." },
-  { question: "What's your commission structure?", answer: "We offer competitive commission rates with transparent pricing. Contact us for a custom quote based on your home's value." },
-  { question: "How long does it take to sell?", answer: "Our listings sell 60% faster than market average. Most homes sell within 30 days, with many receiving offers in the first week." },
+  { question: "How do you determine my home's value?", answer: "We look at recent sales in your neighborhood, current market conditions, and your home's unique features. Our agents know the local market well and will give you an honest, accurate assessment." },
+  { question: "What's your commission?", answer: "We offer competitive rates and transparent pricing. Every situation is different, so contact us for a personalized quote based on your home." },
+  { question: "How long will it take to sell my home?", answer: "It depends on your property and the market, but most of our listings sell within 2-4 weeks. We'll price it right and market it aggressively to get you the best offer quickly." },
 ]
 
 export default function SellerRepresentationPage() {
@@ -68,13 +68,13 @@ export default function SellerRepresentationPage() {
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <ChevronRight className="h-4 w-4" />
-              <span>Seller Representation</span>
+              <span>Selling Your Home</span>
             </div>
             <h1 className="font-serif text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Sell Your Home Faster and For More
+              Sell Your Home for Top Dollar
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Our expert agents use advanced pricing analytics and professional marketing strategies to help you maximize your sale price while reducing time on market.
+              Our experienced local agents know how to price your home right, market it beautifully, and negotiate the best possible deal for you.
             </p>
             <Button size="lg" asChild>
               <a href="#valuation">Get Your Free Home Valuation</a>
@@ -117,7 +117,7 @@ export default function SellerRepresentationPage() {
               transition={{ duration: 0.5 }}
               className="font-serif text-3xl md:text-4xl font-bold text-center mb-12"
             >
-              Key Benefits
+              Why Sell With Us
             </motion.h2>
             <div className="grid md:grid-cols-3 gap-6">
               {BENEFITS.map((benefit, i) => (
@@ -170,8 +170,8 @@ export default function SellerRepresentationPage() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-2xl"
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-4">Get Your Free Data-Driven Home Valuation</h2>
-            <p className="text-center text-muted-foreground mb-8">No obligation. Free for homeowners. Receive your report in 24 hours.</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-4">Get Your Free Home Valuation</h2>
+            <p className="text-center text-muted-foreground mb-8">No obligation. Completely free. Get an honest assessment within 24 hours.</p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <Label htmlFor="address">Property Address</Label>
