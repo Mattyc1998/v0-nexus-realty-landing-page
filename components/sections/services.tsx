@@ -82,15 +82,15 @@ export function Services() {
   return (
     <section 
       id="services" 
-      className="relative py-20 overflow-hidden bg-white" 
+      className="relative py-20 overflow-hidden" 
       ref={ref}
     >
-      {/* Light background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50 -z-10" />
+      {/* Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background -z-10" />
       
-      {/* Subtle warm glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/3 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-400/3 rounded-full blur-[120px] -z-10" />
+      {/* Subtle glow effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-[120px] -z-10" />
 
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
@@ -107,7 +107,7 @@ export function Services() {
           initial={{ opacity: 0, x: -30 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="mb-12 font-serif text-3xl font-bold text-gray-900 md:text-4xl text-balance"
+          className="mb-12 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
         >
           How We Can Help.
         </motion.h2>
@@ -128,14 +128,18 @@ export function Services() {
                 variants={cardVariants}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className="relative group flex flex-col justify-between rounded-lg p-10 border transition-all duration-300"
+                className="relative group flex flex-col justify-between rounded-lg p-10 backdrop-blur-sm border shadow-2xl transition-luxury"
                 style={{
-                  transform: isHovered ? "translateY(-8px)" : "translateY(0)",
-                  backgroundColor: isHovered ? "#ffffff" : "#fafafa",
-                  borderColor: isHovered ? "hsl(var(--primary) / 0.3)" : "#e5e7eb",
+                  transform: isHovered ? "translateY(-10px)" : "translateY(0)",
+                  backgroundColor: isHovered
+                    ? "rgba(0, 0, 0, 0.4)"
+                    : "rgba(0, 0, 0, 0.2)",
+                  borderColor: isHovered
+                    ? "rgba(255, 255, 255, 0.2)"
+                    : "rgba(255, 255, 255, 0.1)",
                   boxShadow: isHovered
-                    ? "0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px hsl(var(--primary) / 0.1)"
-                    : "0 4px 12px rgba(0, 0, 0, 0.05)",
+                    ? "0 20px 40px rgba(0, 0, 0, 0.3)"
+                    : "0 10px 30px rgba(0, 0, 0, 0.2)",
                 }}
               >
                 <div>
@@ -145,28 +149,28 @@ export function Services() {
                     style={{
                       transform: isHovered ? "rotate(5deg) scale(1.1)" : "rotate(0deg) scale(1)",
                       backgroundColor: isHovered
-                        ? "hsl(var(--primary) / 0.1)"
-                        : "hsl(var(--primary) / 0.05)",
-                      borderColor: isHovered
                         ? "hsl(var(--primary) / 0.2)"
                         : "hsl(var(--primary) / 0.1)",
+                      borderColor: isHovered
+                        ? "hsl(var(--primary) / 0.4)"
+                        : "hsl(var(--primary) / 0.2)",
                     }}
                   >
                     <Icon className="h-7 w-7 text-primary" />
                   </motion.div>
 
-                  <h3 className="mb-3 font-serif text-xl font-bold text-gray-900">
+                  <h3 className="mb-3 font-serif text-xl font-bold text-foreground">
                     {service.title}
                   </h3>
 
-                  <p className="text-sm leading-relaxed text-gray-600">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
                 </div>
 
                 <Button
                   asChild
-                  className="mt-8 w-fit relative overflow-hidden group/btn shadow-md hover:shadow-lg"
+                  className="mt-8 w-fit relative overflow-hidden group/btn shadow-lg"
                   style={{
                     transform: isHovered ? "scale(1.05)" : "scale(1)",
                     transition: "transform 200ms ease-out",
