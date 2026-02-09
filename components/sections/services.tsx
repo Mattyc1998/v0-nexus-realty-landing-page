@@ -135,8 +135,8 @@ export function Services() {
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
                   backgroundColor: isHovered
-                    ? "rgba(30, 30, 30, 0.8)" // Lighter cards
-                    : "rgba(20, 20, 20, 0.6)", // Lighter cards
+                    ? "rgba(30, 30, 30, 0.8)"
+                    : "rgba(20, 20, 20, 0.6)",
                   borderColor: isHovered
                     ? "rgba(255, 255, 255, 0.3)"
                     : "rgba(255, 255, 255, 0.2)",
@@ -191,7 +191,7 @@ export function Services() {
                 </Button>
               </motion.div>
             )
-          }}}
+          })}
         </motion.div>
       </div>
     </section>
