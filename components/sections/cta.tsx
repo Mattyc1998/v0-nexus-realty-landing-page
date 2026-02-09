@@ -27,7 +27,7 @@ export function CTA() {
           transition={{ duration: 0.6, ease: [0.4, 0.0, 0.2, 1] }}
           className="font-serif text-3xl font-bold text-foreground md:text-5xl text-balance"
         >
-          Ready to see what your home will be worth in 2026?
+          Curious what your home is worth?
         </motion.h2>
 
         <motion.p
@@ -36,7 +36,7 @@ export function CTA() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground"
         >
-          Join thousands of homeowners who've made confident decisions with our data-driven insights and expert guidance. Get your free forecast in seconds - no obligation, no pressure.
+          Get a free, honest valuation from our local experts. Whether you're thinking of selling or just curious, we'll give you an accurate picture of your property's value - no obligation, no pressure.
         </motion.p>
 
         <motion.div
@@ -53,7 +53,7 @@ export function CTA() {
             className="mt-8 h-12 text-base font-semibold relative overflow-hidden luxury-pulse transition-luxury hover:scale-105"
             onClick={() => setDialogOpen(true)}
           >
-            Get Your Free Forecast
+            Get Your Free Valuation
           </Button>
         </motion.div>
       </div>
