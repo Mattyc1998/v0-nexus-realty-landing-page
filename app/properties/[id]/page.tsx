@@ -72,7 +72,7 @@ export default function PropertyDetailPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    toast.success("Viewing request submitted! An agent will contact you within 24 hours.")
+    toast.success("Viewing request submitted! We'll contact you within 24 hours to arrange a viewing.")
     setFormData({ name: "", email: "", phone: "", preferredDate: "", preferredTime: "", message: "" })
   }
 
@@ -207,7 +207,7 @@ export default function PropertyDetailPage() {
                 <div className="sticky top-24 space-y-6">
                   <div className="rounded-lg border border-border bg-card p-6">
                     <h3 className="text-xl font-semibold mb-4">
-                      Interested in viewing this property?
+                      Book a Viewing
                     </h3>
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
@@ -225,6 +225,7 @@ export default function PropertyDetailPage() {
                           id="email"
                           type="email"
                           required
+                          placeholder="you@example.co.uk"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         />
@@ -235,6 +236,7 @@ export default function PropertyDetailPage() {
                           id="phone"
                           type="tel"
                           required
+                          placeholder="01642 123 456"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         />
@@ -269,6 +271,7 @@ export default function PropertyDetailPage() {
                         <Textarea
                           id="message"
                           rows={3}
+                          placeholder="Any questions or special requests?"
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         />
@@ -277,7 +280,7 @@ export default function PropertyDetailPage() {
                         Request Viewing
                       </Button>
                       <p className="text-xs text-center text-muted-foreground">
-                        An agent will contact you within 24 hours
+                        We'll contact you within 24 hours
                       </p>
                     </form>
                   </div>
@@ -289,20 +292,20 @@ export default function PropertyDetailPage() {
                       </div>
                       <div>
                         <h4 className="font-semibold">Sarah Thompson</h4>
-                        <p className="text-sm text-muted-foreground">Senior Estate Agent</p>
+                        <p className="text-sm text-muted-foreground">Senior Property Consultant</p>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="tel:01234567890">
+                        <a href="tel:01642123456">
                           <Phone className="h-4 w-4 mr-2" />
-                          01234 567890
+                          01642 123 456
                         </a>
                       </Button>
                       <Button variant="outline" className="w-full justify-start" asChild>
                         <a href="mailto:sarah@nexusrealty.co.uk">
                           <Mail className="h-4 w-4 mr-2" />
-                          Email Agent
+                          Email Sarah
                         </a>
                       </Button>
                     </div>
