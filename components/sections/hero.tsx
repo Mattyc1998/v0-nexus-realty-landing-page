@@ -100,7 +100,7 @@ export function Hero() {
           transition={{ delay: 1.1 }}
           className="mx-auto mt-6 max-w-xl text-lg text-white/90 md:text-xl"
         >
-          Expert local agents who know the neighborhoods and help you get the best deal.
+          Expert local agents who know the neighborhoods, understand your needs, and help you get the best deal.
         </motion.p>
 
         {/* CTA ONLY */}
