@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Home, Key, TrendingUp, Heart } from "lucide-react"
+import { Home, Key, Users, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
@@ -11,33 +11,33 @@ const SERVICES = [
   {
     icon: Home,
     slug: "seller-representation",
-    title: "Sell Your Home Faster and For More",
+    title: "Sell Your Home for Top Dollar",
     description:
-      "Our expert agents use advanced pricing analytics to analyze thousands of comparable sales and real-time market data, ensuring your home is priced perfectly to maximize value and minimize time on market.",
+      "We'll price your home competitively, market it beautifully, and negotiate aggressively to get you the best possible offer. Our expert agents know exactly how to showcase your home and attract serious buyers quickly.",
     cta: "Get Free Home Valuation",
   },
   {
     icon: Key,
     slug: "buyer-representation",
-    title: "Get Matched with Your Ideal Home the Moment It's Available",
+    title: "Find Your Perfect Home",
     description:
-      "Our smart property matching system sends you instant alerts when homes that fit your criteria hit the market. Combined with our agents' extensive network and industry relationships, you'll often hear about opportunities before they're widely advertised - giving you a competitive edge in competitive markets.",
+      "From your first viewing to closing day, we'll help you find a home that truly fits your lifestyle and budget. Our agents have access to new listings before they hit the market, giving you the best selection and insider opportunities.",
     cta: "Start Your Home Search",
   },
   {
-    icon: TrendingUp,
+    icon: Users,
     slug: "market-analysis",
-    title: "Know Exactly When to Buy or Sell",
+    title: "Expert Local Market Knowledge",
     description:
-      "Our proprietary forecasting platform analyzes economic indicators, demographic shifts, and hyper-local trends to predict price movements 6-12 months ahead - giving you the confidence to time your move perfectly.",
+      "Wondering what's happening in your neighborhood? Our agents live and work in the community and can tell you everything - from pricing trends to the best time to buy or sell. Get the insights you need to make confident decisions.",
     cta: "Get Market Report",
   },
   {
     icon: Heart,
     slug: "first-time-buyers",
-    title: "Navigate Your First Purchase with Confidence",
+    title: "First-Time Buyer Support",
     description:
-      "Our smart affordability tools combined with expert guidance help you understand exactly what you can afford and navigate every step of your first purchase with confidence.",
+      "Buying your first home should be exciting, not stressful. We'll walk you through every step, explain the process clearly, and help you understand what you can afford. You'll always have an expert by your side who genuinely cares about your success.",
     cta: "Schedule Free Consultation",
   },
 ]
@@ -98,7 +98,7 @@ export function Services() {
           transition={{ duration: 0.4, delay: 0.1 }}
           className="mb-12 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
         >
-          Core Services.
+          How We Can Help.
         </motion.h2>
 
         <motion.div
