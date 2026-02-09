@@ -66,12 +66,12 @@ export function Advantages() {
   return (
     <section className="relative py-20 overflow-hidden warm-glow" ref={ref}>
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/4 to-transparent"
         initial={{ opacity: 0 }}
         animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1 }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-gold-400/5 via-transparent to-bronze-400/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-gold-400/4 via-transparent to-bronze-400/4 pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <motion.div
@@ -109,28 +109,38 @@ export function Advantages() {
                 variants={cardVariants}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className="group rounded-lg glass-card p-8 transition-luxury shadow-luxury-hover"
+                className="group rounded-lg p-8 transition-luxury shadow-luxury-hover"
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
-                  borderColor: isHovered ? "hsl(var(--primary) / 0.4)" : "rgba(255, 255, 255, 0.06)",
+                  backgroundColor: isHovered
+                    ? "rgba(20, 24, 38, 0.85)"
+                    : "rgba(15, 18, 30, 0.75)",
+                  border: "1px solid",
+                  borderColor: isHovered
+                    ? "hsl(var(--primary) / 0.5)"
+                    : "rgba(255, 255, 255, 0.12)",
                 }}
               >
                 <motion.div
                   variants={iconVariants}
-                  className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-all duration-300"
+                  className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg"
                   style={{
-                    transform: isHovered ? "rotate(5deg) scale(1.05)" : "rotate(0deg) scale(1)",
-                    backgroundColor: isHovered ? "hsl(var(--primary) / 0.2)" : "hsl(var(--primary) / 0.1)",
+                    transform: isHovered
+                      ? "rotate(5deg) scale(1.05)"
+                      : "rotate(0deg) scale(1)",
+                    backgroundColor: isHovered
+                      ? "hsl(var(--primary) / 0.25)"
+                      : "hsl(var(--primary) / 0.15)",
                   }}
                 >
                   <Icon className="h-6 w-6 text-primary" />
                 </motion.div>
 
-                <h3 className="mb-3 font-serif text-xl font-bold text-foreground hover-weight-bold transition-all duration-300">
+                <h3 className="mb-3 font-serif text-xl font-bold text-foreground transition-all duration-300">
                   {item.title}
                 </h3>
 
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-foreground/80">
                   {item.description}
                 </p>
               </motion.div>
