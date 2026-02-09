@@ -30,7 +30,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.15,
     },
   },
 }
@@ -64,14 +64,16 @@ export function Advantages() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative py-20 overflow-hidden warm-glow" ref={ref}>
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/4 to-transparent"
-        initial={{ opacity: 0 }}
-        animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 1 }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-gold-400/4 via-transparent to-bronze-400/4 pointer-events-none" />
+    <section className="relative py-20 overflow-hidden" ref={ref}>
+      {/* Background gradient - similar to services but inverted */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background -z-10" />
+      
+      {/* Warm overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-gold-400/3 via-transparent to-gold-400/3 pointer-events-none -z-10" />
+      
+      {/* Glow effects - positioned differently */}
+      <div className="absolute top-1/2 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-1/2 right-1/3 w-96 h-96 bg-gold-400/5 rounded-full blur-[120px] -z-10" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <motion.div
@@ -87,7 +89,7 @@ export function Advantages() {
         <motion.h2
           initial={{ opacity: 0, x: -30 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-12 font-serif text-3xl font-bold text-foreground md:text-4xl text-balance"
         >
           Your Home Journey, Simplified.
@@ -109,28 +111,33 @@ export function Advantages() {
                 variants={cardVariants}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className="group rounded-lg p-8 transition-luxury shadow-luxury-hover"
+                className="group rounded-lg p-8 backdrop-blur-sm border shadow-2xl transition-luxury"
                 style={{
                   transform: isHovered ? "translateY(-10px)" : "translateY(0)",
                   backgroundColor: isHovered
-                    ? "rgba(20, 24, 38, 0.85)"
-                    : "rgba(15, 18, 30, 0.75)",
-                  border: "1px solid",
+                    ? "rgba(0, 0, 0, 0.4)"
+                    : "rgba(0, 0, 0, 0.2)",
                   borderColor: isHovered
-                    ? "hsl(var(--primary) / 0.5)"
-                    : "rgba(255, 255, 255, 0.12)",
+                    ? "rgba(255, 255, 255, 0.2)"
+                    : "rgba(255, 255, 255, 0.1)",
+                  boxShadow: isHovered
+                    ? "0 20px 40px rgba(0, 0, 0, 0.3)"
+                    : "0 10px 30px rgba(0, 0, 0, 0.2)",
                 }}
               >
                 <motion.div
                   variants={iconVariants}
-                  className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg"
+                  className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border transition-all duration-300"
                   style={{
                     transform: isHovered
-                      ? "rotate(5deg) scale(1.05)"
+                      ? "rotate(5deg) scale(1.1)"
                       : "rotate(0deg) scale(1)",
                     backgroundColor: isHovered
-                      ? "hsl(var(--primary) / 0.25)"
-                      : "hsl(var(--primary) / 0.15)",
+                      ? "hsl(var(--primary) / 0.2)"
+                      : "hsl(var(--primary) / 0.1)",
+                    borderColor: isHovered
+                      ? "hsl(var(--primary) / 0.4)"
+                      : "hsl(var(--primary) / 0.2)",
                   }}
                 >
                   <Icon className="h-6 w-6 text-primary" />
@@ -140,7 +147,7 @@ export function Advantages() {
                   {item.title}
                 </h3>
 
-                <p className="text-sm leading-relaxed text-foreground/80">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {item.description}
                 </p>
               </motion.div>
