@@ -12,7 +12,7 @@ import { Magnetic } from "@/components/magnetic"
 const STATS = [
   { end: 450, suffix: "+", label: "Homes Sold" },
   { end: 98, suffix: "%", label: "Client Satisfaction" },
-  { end: 2.1, suffix: "B+", prefix: "$", label: "In Sales", decimals: 1 },
+  { end: 1.1, suffix: "B+", prefix: "£", label: "In Sales", decimals: 1 },
   { end: 12, suffix: "+", label: "Years Experience" },
 ]
 
