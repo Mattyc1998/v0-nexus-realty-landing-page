@@ -57,7 +57,7 @@ const neighborhoodsData = [
   },
 ];
 
-const NeighborhoodExplorer = () => {
+export const NeighborhoodExplorer = () => {
   const [selectedNeighborhood, setSelectedNeighborhood] = useState<number | null>(null);
 
   return (
@@ -160,5 +160,3 @@ const NeighborhoodExplorer = () => {
     </section>
   );
 };
-
-export default NeighborhoodExplorer;
