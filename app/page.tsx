@@ -1,8 +1,8 @@
 import { Navbar } from "@/components/sections/navbar"
 import { Hero } from "@/components/sections/hero"
 import { Services } from "@/components/sections/services"
-import { NeighborhoodExplorer } from "@/components/sections/neighborhood-explorer"
 import { FeaturedProperties } from "@/components/sections/featured-properties"
+import { NeighborhoodExplorer } from "@/components/sections/neighborhood-explorer"
 import { Advantages } from "@/components/sections/advantages"
 import { RecentlySold } from "@/components/sections/recently-sold"
 import { FAQ } from "@/components/sections/faq"
@@ -18,8 +18,8 @@ export default function Page() {
       <main>
         <Hero />
         <Services />
-        <NeighborhoodExplorer />
         <FeaturedProperties />
+        <NeighborhoodExplorer />
         <Advantages />
         <RecentlySold />
         <FAQ />
