@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/sections/navbar"
 import { Hero } from "@/components/sections/hero"
-import NeighborhoodExplorer from "@/components/sections/neighborhood-explorer"
+import { NeighborhoodExplorer } from "@/components/sections/neighborhood-explorer"
 import { Services } from "@/components/sections/services"
 import { FeaturedProperties } from "@/components/sections/featured-properties"
 import { Advantages } from "@/components/sections/advantages"
