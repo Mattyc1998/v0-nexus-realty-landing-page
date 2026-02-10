@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/sections/navbar"
 import { Hero } from "@/components/sections/hero"
 import { Services } from "@/components/sections/services"
+import { NeighborhoodExplorer } from "@/components/sections/neighborhood-explorer"
 import { FeaturedProperties } from "@/components/sections/featured-properties"
 import { Advantages } from "@/components/sections/advantages"
 import { RecentlySold } from "@/components/sections/recently-sold"
@@ -17,6 +18,7 @@ export default function Page() {
       <main>
         <Hero />
         <Services />
+        <NeighborhoodExplorer />
         <FeaturedProperties />
         <Advantages />
         <RecentlySold />
