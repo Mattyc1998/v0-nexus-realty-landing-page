@@ -1,8 +1,10 @@
 "use client"
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export const NeighborhoodExplorer = () => {
+  const router = useRouter();
   const [income, setIncome] = useState("");
   const [deposit, setDeposit] = useState("");
   const [monthlyOutgoings, setMonthlyOutgoings] = useState("");
@@ -46,6 +48,14 @@ export const NeighborhoodExplorer = () => {
       currency: 'GBP',
       maximumFractionDigits: 0,
     }).format(value);
+  };
+
+  const handleViewProperties = () => {
+    router.push('/search-homes');
+  };
+
+  const handleGetAdvice = () => {
+    router.push('/contact');
   };
 
   return (
@@ -174,10 +184,16 @@ export const NeighborhoodExplorer = () => {
                   Based on your budget, you can afford properties up to <span className="font-semibold text-foreground">{formatCurrency(results.totalBudget)}</span>
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <button className="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90">
+                  <button 
+                    onClick={handleViewProperties}
+                    className="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+                  >
                     View Properties in Your Budget
                   </button>
-                  <button className="rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-accent">
+                  <button 
+                    onClick={handleGetAdvice}
+                    className="rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-accent"
+                  >
                     Get Mortgage Advice
                   </button>
                 </div>
