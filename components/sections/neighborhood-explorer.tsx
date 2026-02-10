@@ -51,7 +51,7 @@ export const NeighborhoodExplorer = () => {
   };
 
   const handleViewProperties = () => {
-    router.push('/search-homes');
+    router.push('/properties');
   };
 
   const handleGetAdvice = () => {
